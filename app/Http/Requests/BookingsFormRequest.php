@@ -11,7 +11,7 @@ class BookingsFormRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,27 @@ class BookingsFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+
+            // Foreign keys
+            'service_id' => ['required', 'exists:services,id'],
+            'user_id' => ['nullable', 'exists:users,id'],
+            // Client info
+            'client_name' => ['required', 'string', 'max:255'],
+            'client_phone' => ['required', 'string', 'max:20'],
+            'client_email' => ['nullable', 'email', 'max:255'],
+            // Booking details
+            'animal_type' => ['required', 'string', 'max:255'],
+            'location' => ['required', 'string', 'max:255'],
+            'preferred_date' => ['required', 'date'],
+            'preferred_time' => ['nullable', 'date_format:H:i'],
+            'issue_description' => ['required', 'string'],
+            // Status enum
+            'status' => [
+                'nullable',
+                Rule::in(['pending', 'confirmed', 'completed', 'cancelled']),
+            ],
+            // Admin
+            'admin_notes' => ['nullable', 'string'],
         ];
     }
 }

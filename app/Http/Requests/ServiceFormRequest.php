@@ -3,40 +3,32 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
 class ServiceFormRequest extends FormRequest
 {
+    /**
+     * Determine if the user is authorized to make this request.
+     */
     public function authorize(): bool
     {
-        // adjust authorization as required (policies / gates)
         return true;
     }
 
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     */
     public function rules(): array
     {
-        $serviceId = $this->route('service')?->id ?? null;
-
         return [
-            'title'       => ['required', 'string', 'max:255'],
-            'slug'        => [
-                'required',
-                'string',
-                'max:255',
-                Rule::unique('services', 'slug')->ignore($serviceId),
-            ],
+            'title' => ['required', 'string', 'max:255'],
+            'slug' => ['required', 'string', 'max:255', 'unique:services,slug'],
             'description' => ['required', 'string'],
-            'details'     => ['nullable', 'string'],
-            'image'       => ['nullable', 'string', 'max:1024'],
-            'price'       => ['nullable', 'numeric', 'min:0'],
-            'is_active'   => ['sometimes', 'boolean'],
+            'details' => ['nullable', 'string'],
+            'image' => ['nullable', 'string', 'max:255'],
+            'price' => ['nullable', 'numeric', 'min:0'],
+            'is_active' => ['nullable', 'boolean'],
         ];
-    }
-
-    public function prepareForValidation(): void
-    {
-        if ($this->has('is_active')) {
-            $this->merge(['is_active' => filter_var($this->input('is_active'), FILTER_VALIDATE_BOOLEAN)]);
-        }
     }
 }
