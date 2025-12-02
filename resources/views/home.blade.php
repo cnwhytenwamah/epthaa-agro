@@ -3,13 +3,12 @@
 @section('title', 'Home')
 
 @section('content')
-<!-- Hero Section -->
 <section class="relative overflow-hidden bg-gradient-to-b from-gray-100 via-[#f6e4c6] to-[#f2c07a]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         
         <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
 
-            <!-- TEXT CONTENT -->
+
             <div class="text-left max-w-xl animate-slideLeft">
 
                 <p class="text-sm tracking-widest font-semibold text-gray-700 uppercase mb-3 animate-fadeUp delay-100">
@@ -24,7 +23,6 @@
                     Pets and animal care products, accessories, all your veterinary care products.
                 </p>
 
-                <!-- CTA Buttons -->
                 <div class="flex gap-4 animate-fadeUp delay-400">
                     <a href="{{ route('bookings.create') }}"
                        class="bg-black text-white px-8 py-4 font-semibold uppercase text-sm hover:bg-gray-800 transition shadow-md">
@@ -40,7 +38,6 @@
             </div>
 
 
-            <!-- IMAGE AREA -->
             <div class="relative w-full flex justify-center lg:justify-end animate-slideRight delay-300">
                 <img 
                     src="{{ asset('assets/img/Animal4-1.png') }}" 
@@ -54,7 +51,6 @@
 </section>
 
 
-<!-- Company Overview -->
 <section class="py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
@@ -65,7 +61,6 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            <!-- RVS Card -->
             <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition">
                 <div class="h-48 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
                     <div class="text-center text-white">
@@ -89,7 +84,6 @@
                 </div>
             </div>
 
-            <!-- JVS Card -->
             <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition">
                 <div class="h-48 bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center">
                     <div class="text-center text-white">
@@ -116,8 +110,7 @@
     </div>
 </section>
 
-<!-- Featured Services -->
-<section class="py-16 bg-gray-50">
+<section class="py-16 bg-gray-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
             <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Veterinary Services</h2>
@@ -135,7 +128,7 @@
                 <div class="p-6">
                     <h3 class="text-xl font-semibold text-gray-900 mb-2">{{ $service->title }}</h3>
                     <p class="text-gray-600 mb-4">{{ Str::limit($service->description, 100) }}</p>
-                    <a href="{{ route('bookings.create', $service->slug) }}" class="text-primary hover:text-secondary font-semibold">
+                    <a href="{{ route('bookings.create', $service->slug) }}" class="text-primary hover:text-[#059669]font-semibold">
                         Book Now →
                     </a>
                 </div>
@@ -144,7 +137,7 @@
         </div>
 
         <div class="text-center mt-8">
-            <a href="{{ route('rvs.services') }}" class="inline-block bg-primary hover:bg-secondary text-white px-8 py-3 rounded-lg font-semibold transition">
+            <a href="{{ route('rvs.services') }}" class="inline-block bg-[#10b981] hover:bg-[#059669] text-white px-8 py-3 rounded-lg font-semibold transition">
                 View All Services
             </a>
         </div>
@@ -184,7 +177,7 @@
                 <div class="p-4 pt-0">
                     <form action="{{ route('cart.add', $product->id) }}" method="POST">
                         @csrf
-                        <button type="submit" class="w-full bg-primary hover:bg-secondary text-white py-2 rounded-lg font-semibold transition" {{ $product->stock_quantity <= 0 ? 'disabled' : '' }}>
+                        <button type="submit" class="w-full bg-[#10b981] hover:bg-[#059669] text-white py-2 rounded-lg font-semibold transition" {{ $product->stock_quantity <= 0 ? 'disabled' : '' }}>
                             Add to Cart
                         </button>
                     </form>
@@ -194,7 +187,7 @@
         </div>
 
         <div class="text-center mt-8">
-            <a href="{{ route('shop.index') }}" class="inline-block bg-primary hover:bg-secondary text-white px-8 py-3 rounded-lg font-semibold transition">
+            <a href="{{ route('shop.index') }}" class="inline-block bg-[#10b981] hover:bg-[#059669] text-white px-8 py-3 rounded-lg font-semibold transition">
                 View All Products
             </a>
         </div>
@@ -222,7 +215,7 @@
                 </div>
                 <p class="text-gray-600 mb-4 italic">"{{ $testimonial->testimonial }}"</p>
                 <div class="flex items-center">
-                    <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xl">
+                    <div class="w-12 h-12 rounded-full bg-[#10b981] flex items-center justify-center text-white font-bold text-xl">
                         {{ substr($testimonial->client_name, 0, 1) }}
                     </div>
                     <div class="ml-4">
@@ -240,12 +233,12 @@
 @endif
 
 <!-- Call to Action -->
-<section class="py-16 bg-gradient-to-r from-primary to-secondary text-white">
+<section class="py-16 bg-gradient-to-r from-[#10b981] to-[#059669] text-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-4xl font-bold mb-4">Ready to Get Started?</h2>
         <p class="text-xl mb-8 text-green-100">Book a veterinary service or shop for quality products today</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="{{ route('bookings.create') }}" class="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-green-50 transition">
+            <a href="{{ route('bookings.create') }}" class="bg-white text-[#10b981] px-8 py-4 rounded-lg font-semibold hover:bg-green-50 transition">
                 Book Appointment
             </a>
             <a href="{{ route('contact') }}" class="bg-green-700 text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-600 transition border-2 border-white">

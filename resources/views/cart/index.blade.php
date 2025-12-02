@@ -14,7 +14,7 @@
             </svg>
             <h3 class="text-2xl font-semibold text-gray-900 mb-2">Your cart is empty</h3>
             <p class="text-gray-600 mb-6">Add some products to get started!</p>
-            <a href="{{ route('shop.index') }}" class="inline-block bg-primary hover:bg-secondary text-white px-8 py-3 rounded-lg font-semibold transition">
+            <a href="{{ route('shop.index') }}" class="inline-block bg-[#10b981] hover:bg-[#059669] text-white px-8 py-3 rounded-lg font-semibold transition">
                 Continue Shopping
             </a>
         </div>
@@ -102,7 +102,7 @@
                         <span class="text-primary">₦{{ number_format($total + 2000, 2) }}</span>
                     </div>
 
-                    <a href="{{ route('checkout.index') }}" class="block w-full bg-primary hover:bg-secondary text-white text-center py-4 rounded-lg font-semibold transition">
+                    <a href="{{ route('checkout.index') }}" class="block w-full bg-[#10b981] hover:bg-[#059669] text-white text-center py-4 rounded-lg font-semibold transition">
                         Proceed to Checkout
                     </a>
 

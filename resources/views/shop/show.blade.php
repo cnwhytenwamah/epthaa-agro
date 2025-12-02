@@ -40,7 +40,7 @@
 
             <!-- Product Info -->
             <div>
-                <span class="inline-block bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold mb-4">
+                <span class="inline-block bg-[#10b981] text-white px-3 py-1 rounded-full text-sm font-semibold mb-4">
                     {{ $product->category->name }}
                 </span>
                 
@@ -99,7 +99,7 @@
                     </div>
 
                     <div class="flex gap-4">
-                        <button type="submit" class="flex-1 bg-primary hover:bg-secondary text-white py-4 rounded-lg font-semibold transition text-lg" {{ $product->stock_quantity <= 0 ? 'disabled' : '' }}>
+                        <button type="submit" class="flex-1 bg-[#10b981] hover:bg-[#059669] text-white py-4 rounded-lg font-semibold transition text-lg" {{ $product->stock_quantity <= 0 ? 'disabled' : '' }}>
                             Add to Cart
                         </button>
                         <a href="https://wa.me/{{ env('WHATSAPP_NUMBER') }}?text=I'm interested in {{ $product->name }}" target="_blank" class="bg-green-600 hover:bg-green-700 text-white px-6 py-4 rounded-lg transition flex items-center justify-center">

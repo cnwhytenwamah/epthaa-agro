@@ -97,13 +97,13 @@
   }
 }
 
-.table-head-bg-primary {
+.table-head-bg-[#10b981] {
   thead {
     border: 1px solid $primary-color !important;
   }
 }
 
-.table-head-bg-secondary {
+.table-head-bg-[#059669] {
   thead {
     border: 1px solid $secondary-color !important;
   }
@@ -143,11 +143,11 @@
   @include table-bg-state($dark-color);
 }
 
-.table-head-bg-primary thead th, .table-striped-bg-primary tbody tr:nth-of-type(odd) {
+.table-head-bg-[#10b981] thead th, .table-striped-bg-[#10b981] tbody tr:nth-of-type(odd) {
   @include table-bg-state($primary-color);
 }
 
-.table-head-bg-secondary thead th, .table-striped-bg-secondary tbody tr:nth-of-type(odd) {
+.table-head-bg-[#059669] thead th, .table-striped-bg-[#059669] tbody tr:nth-of-type(odd) {
   @include table-bg-state($secondary-color);
 }
 

@@ -61,25 +61,25 @@
                     <h4 class="font-semibold text-gray-900 mb-2">Services Include:</h4>
                     <ul class="space-y-2 text-gray-700">
                         <li class="flex items-start">
-                            <svg class="w-5 h-5 text-primary mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-5 h-5 text-[#10b981] mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                             </svg>
                             <span>Professional veterinary treatment and diagnostics</span>
                         </li>
                         <li class="flex items-start">
-                            <svg class="w-5 h-5 text-primary mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-5 h-5 text-[#10b981] mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                             </svg>
                             <span>Comprehensive vaccination programs</span>
                         </li>
                         <li class="flex items-start">
-                            <svg class="w-5 h-5 text-primary mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-5 h-5 text-[#10b981] mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                             </svg>
                             <span>Expert farm consultancy services</span>
                         </li>
                         <li class="flex items-start">
-                            <svg class="w-5 h-5 text-primary mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-5 h-5 text-[#10b981] mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                             </svg>
                             <span>Breeding advisory and support</span>
@@ -106,25 +106,25 @@
                     <h4 class="font-semibold text-gray-900 mb-2">Products Include:</h4>
                     <ul class="space-y-2 text-gray-700">
                         <li class="flex items-start">
-                            <svg class="w-5 h-5 text-primary mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-5 h-5 text-[#10b981] mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                             </svg>
                             <span>Quality veterinary medicines and drugs</span>
                         </li>
                         <li class="flex items-start">
-                            <svg class="w-5 h-5 text-primary mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-5 h-5 text-[#10b981] mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                             </svg>
                             <span>Premium animal feeds and supplements</span>
                         </li>
                         <li class="flex items-start">
-                            <svg class="w-5 h-5 text-primary mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-5 h-5 text-[#10b981] mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                             </svg>
                             <span>Essential farming tools and equipment</span>
                         </li>
                         <li class="flex items-start">
-                            <svg class="w-5 h-5 text-primary mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-5 h-5 text-[#10b981] mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                             </svg>
                             <span>Animal care accessories</span>
@@ -146,7 +146,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div class="text-center">
-                <div class="bg-primary rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                <div class="bg-[#10b981] rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
                     <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                     </svg>
@@ -156,7 +156,7 @@
             </div>
 
             <div class="text-center">
-                <div class="bg-primary rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                <div class="bg-[#10b981] rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
                     <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                     </svg>
@@ -166,7 +166,7 @@
             </div>
 
             <div class="text-center">
-                <div class="bg-primary rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                <div class="bg-[#10b981] rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
                     <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                     </svg>
@@ -176,7 +176,7 @@
             </div>
 
             <div class="text-center">
-                <div class="bg-primary rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                <div class="bg-[#10b981] rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
                     <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                     </svg>
@@ -189,12 +189,12 @@
 </section>
 
 <!-- CTA -->
-<section class="py-16 bg-gradient-to-r from-primary to-secondary text-white">
+<section class="py-16 bg-gradient-to-r from-[#10b981] to-[#059669] text-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-4xl font-bold mb-4">Ready to Partner With Us?</h2>
         <p class="text-xl mb-8 text-green-100">Experience the difference of professional veterinary care and quality products</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="{{ route('bookings.create') }}" class="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-green-50 transition">
+            <a href="{{ route('bookings.create') }}" class="bg-white text-[#10b981] px-8 py-4 rounded-lg font-semibold hover:bg-green-50 transition">
                 Book a Service
             </a>
             <a href="{{ route('contact') }}" class="bg-green-700 text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-600 transition border-2 border-white">

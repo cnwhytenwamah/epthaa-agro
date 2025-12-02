@@ -146,7 +146,7 @@
                             <span class="text-primary">₦{{ number_format($total, 2) }}</span>
                         </div>
 
-                        <button type="submit" class="w-full bg-primary hover:bg-secondary text-white py-4 rounded-lg font-semibold transition text-lg">
+                        <button type="submit" class="w-full bg-[#10b981] hover:bg-[#059669] text-white py-4 rounded-lg font-semibold transition text-lg">
                             Place Order
                         </button>
 

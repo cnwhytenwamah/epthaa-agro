@@ -134,19 +134,19 @@ body {
 	background-color: $dark2-color !important;
 }
 
-.bg-primary {
+.bg-[#10b981] {
 	background-color: $primary-color !important;
 }
 
-.bg-primary2 {
+.bg-[#10b981]2 {
 	background-color: $primary2-color !important;
 }
 
-.bg-secondary {
+.bg-[#059669] {
 	background-color: $secondary-color !important;
 }
 
-.bg-secondary2 {
+.bg-[#059669]2 {
 	background-color: $secondary2-color !important;
 }
 
@@ -200,11 +200,11 @@ body {
 	@include linear-gradient(-45deg, #0A0B11, $dark2-color);
 }
 
-.bg-primary-gradient {
+.bg-[#10b981]-gradient {
 	@include linear-gradient(-45deg, #06418E, $primary-color);
 }
 
-.bg-secondary-gradient {
+.bg-[#059669]-gradient {
 	@include linear-gradient(-45deg, #2A20AC, $secondary-color);
 }
 

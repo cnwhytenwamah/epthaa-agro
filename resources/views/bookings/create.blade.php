@@ -117,7 +117,7 @@
                 </div>
 
                 <div class="flex gap-4">
-                    <button type="submit" class="flex-1 bg-primary hover:bg-secondary text-white py-4 rounded-lg font-semibold transition text-lg">
+                    <button type="submit" class="flex-1 bg-[#10b981] hover:bg-[#059669] text-white py-4 rounded-lg font-semibold transition text-lg">
                         Submit Booking Request
                     </button>
                     <a href="{{ route('rvs.services') }}" class="px-6 py-4 border-2 border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 transition">

@@ -58,7 +58,7 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="w-full bg-primary hover:bg-secondary text-white py-2 rounded-lg font-semibold transition">
+                        <button type="submit" class="w-full bg-[#10b981] hover:bg-[#059669] text-white py-2 rounded-lg font-semibold transition">
                             Apply Filters
                         </button>
 
@@ -117,7 +117,7 @@
                             <div class="flex gap-2">
                                 <form action="{{ route('cart.add', $product->id) }}" method="POST" class="flex-1">
                                     @csrf
-                                    <button type="submit" class="w-full bg-primary hover:bg-secondary text-white py-2 rounded-lg font-semibold transition" {{ $product->stock_quantity <= 0 ? 'disabled' : '' }}>
+                                    <button type="submit" class="w-full bg-[#10b981] hover:bg-[#059669] text-white py-2 rounded-lg font-semibold transition" {{ $product->stock_quantity <= 0 ? 'disabled' : '' }}>
                                         Add to Cart
                                     </button>
                                 </form>
@@ -143,7 +143,7 @@
                     </svg>
                     <h3 class="text-2xl font-semibold text-gray-900 mb-2">No products found</h3>
                     <p class="text-gray-600 mb-4">Try adjusting your filters or search terms</p>
-                    <a href="{{ route('shop.index') }}" class="inline-block bg-primary hover:bg-secondary text-white px-6 py-3 rounded-lg font-semibold transition">
+                    <a href="{{ route('shop.index') }}" class="inline-block bg-[#10b981] hover:bg-[#059669] text-white px-6 py-3 rounded-lg font-semibold transition">
                         Clear Filters
                     </a>
                 </div>
