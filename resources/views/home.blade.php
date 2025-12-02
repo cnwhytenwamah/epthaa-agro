@@ -4,31 +4,55 @@
 
 @section('content')
 <!-- Hero Section -->
-<section class="relative bg-gradient-to-r from-green-600 to-green-800 text-white">
+<section class="relative overflow-hidden bg-gradient-to-b from-gray-100 via-[#f6e4c6] to-[#f2c07a]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        <div class="text-center">
-            <h1 class="text-5xl md:text-6xl font-bold mb-6">
-                Welcome to EPTHAA AGRO LIMITED
-            </h1>
-            <p class="text-xl md:text-2xl mb-8 text-green-100">
-                Your trusted partner in veterinary care and agricultural solutions
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="{{ route('bookings.create') }}" class="bg-white text-green-700 px-8 py-4 rounded-lg font-semibold hover:bg-green-50 transition shadow-lg">
-                    Book Veterinary Service
-                </a>
-                <a href="{{ route('shop.index') }}" class="bg-green-700 text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-600 transition border-2 border-white">
-                    Shop Products
-                </a>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
+
+            <!-- TEXT CONTENT -->
+            <div class="text-left max-w-xl animate-slideLeft">
+
+                <p class="text-sm tracking-widest font-semibold text-gray-700 uppercase mb-3 animate-fadeUp delay-100">
+                    We Offer
+                </p>
+
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-5 text-black animate-fadeUp delay-200">
+                    Wide range of products
+                </h1>
+
+                <p class="text-lg text-gray-700 mb-8 animate-fadeUp delay-300">
+                    Pets and animal care products, accessories, all your veterinary care products.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex gap-4 animate-fadeUp delay-400">
+                    <a href="{{ route('bookings.create') }}"
+                       class="bg-black text-white px-8 py-4 font-semibold uppercase text-sm hover:bg-gray-800 transition shadow-md">
+                        Book Veterinary Service
+                    </a>
+
+                    <a href="{{ route('shop.index') }}"
+                       class="border-2 border-black text-black px-8 py-4 font-semibold uppercase text-sm hover:bg-black hover:text-white transition">
+                        Shop Products
+                    </a>
+                </div>
+
             </div>
+
+
+            <!-- IMAGE AREA -->
+            <div class="relative w-full flex justify-center lg:justify-end animate-slideRight delay-300">
+                <img 
+                    src="{{ asset('assets/img/Animal4-1.png') }}" 
+                    alt="Farm and domestic animals"
+                    class="w-full max-w-xl object-contain drop-shadow-xl"
+                >
+            </div>
+
         </div>
     </div>
-    <div class="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#F9FAFB"/>
-        </svg>
-    </div>
 </section>
+
 
 <!-- Company Overview -->
 <section class="py-16">

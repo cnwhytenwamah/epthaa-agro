@@ -13,6 +13,65 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Styles -->
+    <style>
+        /* Fade + slide up */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Slide in from left */
+        @keyframes slideLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Slide in from right (for image) */
+        @keyframes slideRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-fadeUp {
+            animation: fadeUp 0.9s ease-out forwards;
+        }
+
+        .animate-slideLeft {
+            opacity: 0;
+            animation: slideLeft 1s ease-out forwards;
+        }
+
+        .animate-slideRight {
+            opacity: 0;
+            animation: slideRight 1.2s ease-out forwards;
+        }
+
+        /* Delay helpers */
+        .delay-100 { animation-delay: .1s }
+        .delay-200 { animation-delay: .2s }
+        .delay-300 { animation-delay: .3s }
+        .delay-400 { animation-delay: .4s }
+        .delay-500 { animation-delay: .5s }
+        </style>
+
     
     
     @stack('styles')

@@ -4,10 +4,14 @@
 
 @section('content')
 <!-- Hero Section -->
-<section class="bg-gradient-to-r from-green-600 to-green-800 text-white py-20">
+<section class="relative bg-[url('assets/img/hero.jpg')] bg-cover bg-center text-gray-500 py-16">    
+    <!-- Dark overlay -->
+    <div class="absolute inset-0 bg-black/50"></div>
+
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 class="text-5xl font-bold mb-4">About EPTHAA AGRO LIMITED</h1>
-        <p class="text-xl text-green-100">Leading the way in veterinary care and agricultural solutions</p>
+
+        <p class="text-xl text-gray-500">Leading the way in veterinary care and agricultural solutions</p>
     </div>
 </section>
 
