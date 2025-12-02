@@ -12,7 +12,7 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
 
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     
     <!-- Styles -->
@@ -81,37 +81,37 @@
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <nav id="main-nav" class="sticky top-0 z-50 transition-all duration-300 bg-transparent shadow-none" >
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20">
                 <!-- Logo -->
                 <div class="flex items-center">
                     <a href="{{ route('home') }}" class="flex items-center">
-                        <span class="text-2xl font-bold text-primary">EPTHAA</span>
+                        <span class="text-2xl font-bold text-[#10b981]">EPTHAA</span>
                         <span class="text-2xl font-bold text-gray-800 ml-1">AGRO</span>
                     </a>
                 </div>
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="{{ route('home') }}" class="text-gray-700 hover:text-primary transition {{ request()->routeIs('home') ? 'text-primary font-semibold' : '' }}">
+                    <a href="{{ route('home') }}" class="text-gray-700 hover:text-[#10b981] transition {{ request()->routeIs('home') ? 'text-[#10b981] font-semibold' : '' }}">
                         Home
                     </a>
-                    <a href="{{ route('rvs.index') }}" class="text-gray-700 hover:text-primary transition {{ request()->routeIs('rvs.*') ? 'text-primary font-semibold' : '' }}">
+                    <a href="{{ route('rvs.index') }}" class="text-gray-700 hover:text-[#10b981] transition {{ request()->routeIs('rvs.*') ? 'text-[#10b981] font-semibold' : '' }}">
                         RVS Services
                     </a>
-                    <a href="{{ route('shop.index') }}" class="text-gray-700 hover:text-primary transition {{ request()->routeIs('shop.*') ? 'text-primary font-semibold' : '' }}">
+                    <a href="{{ route('shop.index') }}" class="text-gray-700 hover:text-[#10b981] transition {{ request()->routeIs('shop.*') ? 'text-[#10b981] font-semibold' : '' }}">
                         Shop (JVS)
                     </a>
-                    <a href="{{ route('about') }}" class="text-gray-700 hover:text-primary transition {{ request()->routeIs('about') ? 'text-primary font-semibold' : '' }}">
+                    <a href="{{ route('about') }}" class="text-gray-700 hover:text-[#10b981] transition {{ request()->routeIs('about') ? 'text-[#10b981] font-semibold' : '' }}">
                         About
                     </a>
-                    <a href="{{ route('contact') }}" class="text-gray-700 hover:text-primary transition {{ request()->routeIs('contact') ? 'text-primary font-semibold' : '' }}">
+                    <a href="{{ route('contact') }}" class="text-gray-700 hover:text-[#10b981] transition {{ request()->routeIs('contact') ? 'text-[#10b981] font-semibold' : '' }}">
                         Contact
                     </a>
 
                     <!-- Cart Icon -->
-                    <a href="{{ route('cart.index') }}" class="relative text-gray-700 hover:text-primary transition">
+                    <a href="{{ route('cart.index') }}" class="relative text-gray-700 hover:text-[#10b981] transition">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                         </svg>
@@ -127,7 +127,7 @@
 
                     @auth
                         <div class="relative group">
-                            <button class="flex items-center text-gray-700 hover:text-primary transition">
+                            <button class="flex items-center text-gray-700 hover:text-[#10b981] transition">
                                 <span>{{ Auth::user()->name }}</span>
                                 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -143,13 +143,13 @@
                             </div>
                         </div>
                     @else
-                        <a href="{{ route('login') }}" class="text-gray-700 hover:text-primary transition">Login</a>
+                        <a href="{{ route('login') }}" class="text-gray-700 hover:text-[#10b981] transition">Login</a>
                     @endauth
                 </div>
 
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-button" class="text-gray-700 hover:text-primary focus:outline-none">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-[#10b981] focus:outline-none">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
@@ -308,5 +308,20 @@
     </script>
 
     @stack('scripts')
+
+    <script>
+        const nav = document.getElementById('main-nav');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                nav.classList.remove('bg-transparent', 'shadow-none');
+                nav.classList.add('bg-white', 'shadow-lg');
+            } else {
+                nav.classList.add('bg-transparent', 'shadow-none');
+                nav.classList.remove('bg-white', 'shadow-lg');
+            }
+        });
+    </script>
+
 </body>
 </html>

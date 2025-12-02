@@ -4,8 +4,15 @@
 
 @section('content')
 <!-- Page Header -->
-<section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section 
+    class="relative bg-[url('{{ asset('assets/img/bg-hero.jpg') }}')] bg-cover bg-center text-white py-20"
+>
+    <!-- Dark overlay -->
+    <div class="absolute inset-0 bg-blue-900/70"></div>
+
+    <!-- Content -->
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         <nav class="mb-6 text-sm text-blue-200">
             <a href="{{ route('home') }}" class="hover:text-white">Home</a>
             <span class="mx-2">/</span>
@@ -14,12 +21,17 @@
             <span class="text-white">Services</span>
         </nav>
         
-        <h1 class="text-5xl font-bold mb-4">Our Veterinary Services</h1>
+        <h1 class="text-5xl font-bold mb-4">
+            Our Veterinary Services
+        </h1>
+
         <p class="text-xl text-blue-100 max-w-3xl">
             Comprehensive animal healthcare solutions tailored to meet your specific needs
         </p>
+
     </div>
 </section>
+
 
 <!-- Services Grid -->
 <section class="py-16">
