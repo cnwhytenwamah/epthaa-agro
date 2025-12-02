@@ -11,6 +11,9 @@
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700&display=swap" rel="stylesheet" />
     
     <script src="https://cdn.tailwindcss.com"></script>
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     
     <!-- Styles -->
     <style>
@@ -245,12 +248,30 @@
                 <!-- Contact -->
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+
                     <ul class="space-y-2 text-gray-400">
-                        <li>📧 info@epthaaagro.com</li>
-                        <li>📞 +234 {{ env('WHATSAPP_NUMBER') }}</li>
-                        <li>📍 Lagos, Nigeria</li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-envelope text-green-500"></i>
+                            <span>info@epthaaagro.com</span>
+                        </li>
+
+                        <li class="flex items-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-green-500"></i>
+                            <span>{{ env('WHATSAPP_NUMBER') }}</span>
+                        </li>
+
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-location-dot text-green-500"></i>
+                            <span>Lagos, Nigeria</span>
+                        </li>
                     </ul>
-                    <a href="https://wa.me/{{ env('WHATSAPP_NUMBER') }}" target="_blank" class="inline-block mt-4 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded transition">
+
+                    <a 
+                        href="https://wa.me/{{ env('WHATSAPP_NUMBER') }}" 
+                        target="_blank"
+                        class="inline-flex items-center gap-2 mt-4 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded transition"
+                    >
+                        <i class="fa-brands fa-whatsapp"></i>
                         Chat on WhatsApp
                     </a>
                 </div>
