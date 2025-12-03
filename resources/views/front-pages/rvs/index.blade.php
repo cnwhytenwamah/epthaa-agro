@@ -143,7 +143,7 @@
                         </div>
                     @endif
 
-                    <div class="p-6">
+                    <div class="p-6 bg-gray-50">
                         <h3 class="text-xl font-bold text-gray-900 mb-2">
                             {{ $service->title }}
                         </h3>

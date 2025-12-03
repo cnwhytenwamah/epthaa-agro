@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\BaseController;
+use App\Http\Requests\ServiceFormRequest;
 
 class ServiceController extends BaseController
 {
@@ -50,7 +51,7 @@ class ServiceController extends BaseController
         return view('admin.services.edit', compact('service'));
     }
 
-    public function update(Request $request, Service $service)
+    public function update(ServiceFormRequest $request, Service $service)
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',

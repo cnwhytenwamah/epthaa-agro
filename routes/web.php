@@ -8,6 +8,11 @@ use App\Http\Controllers\FrontPages\HomeController;
 use App\Http\Controllers\FrontPages\ShopController;
 use App\Http\Controllers\FrontPages\BookingController;
 use App\Http\Controllers\FrontPages\CheckoutController;
+use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\Auth\AdminLoginController;
+use App\Http\Controllers\Admin\Auth\AdminRegisterController;
+use App\Http\Controllers\Admin\Auth\AdminResetPasswordController;
+use App\Http\Controllers\Admin\Auth\AdminForgotPasswordController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\Admin\BookingController as AdminBookingController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
@@ -56,24 +61,56 @@ Route::prefix('checkout')->name('checkout.')->group(function () {
     Route::get('/flutterwave/callback', [CheckoutController::class, 'flutterwaveCallback'])->name('flutterwave.callback');
 });
 
-// Admin Routes
-Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    
-    // Services
-    Route::resource('services', AdminServiceController::class);
-    
-    // Bookings
-    Route::resource('bookings', AdminBookingController::class)->only(['index', 'show', 'destroy']);
-    Route::patch('/bookings/{booking}/status', [AdminBookingController::class, 'updateStatus'])->name('bookings.update-status');
-    
-    // Products
-    Route::resource('products', AdminProductController::class);
-    
-    // Orders
-    Route::resource('orders', AdminOrderController::class)->only(['index', 'show']);
-    Route::patch('/orders/{order}/status', [AdminOrderController::class, 'updateStatus'])->name('orders.update-status');
-    Route::get('/orders/{order}/invoice', [AdminOrderController::class, 'invoice'])->name('orders.invoice');
+
+Route::group(['prefix'=>'admin'], function(){
+    Route::get('login', [AdminLoginController::class, 'showLoginForm'])->name('admin.login');
+    Route::post('login',[AdminLoginController::class,'login'])->name('admin.auth.login');
+    Route::get('register', [AdminRegisterController::class, 'showRegisterForm'])->name('admin.register');
+    Route::post('process-register', [AdminRegisterController::class, 'register'])->name('admin.auth.register');
+    Route::get('forgot-password', [AdminForgotPasswordController::class, 'showForgotPasswordForm'])->name('admin.forgot-password');
+    Route::post('send-password-reset-link', [AdminForgotPasswordController::class, 'sendResetLink'])->name('admin.auth.send-password-email');
+    Route::get('reset-password/{token}', [AdminResetPasswordController::class, 'showResetPasswordForm'])->name('admin.reset-password');
+    Route::post('password-update', [AdminResetPasswordController::class, 'resetPassword'])->name('admin.auth.password-update');
 });
 
-require __DIR__.'/auth.php';
+
+
+// Admin Routes
+Route::prefix('admin')->name('admin.')->middleware(['auth:admin'])->group(function () {
+
+        // Dashboard
+        Route::get('dashboard', [AdminDashboardController::class, 'index'])
+            ->name('dashboard');
+
+        // Services
+        Route::resource('services', AdminServiceController::class);
+
+        // Bookings
+        Route::resource('bookings', AdminBookingController::class)
+            ->only(['index', 'show', 'destroy']);
+
+        Route::patch('bookings/{booking}/status', [AdminBookingController::class, 'updateStatus'])
+            ->name('bookings.update-status');
+
+        // Products
+        Route::resource('products', AdminProductController::class);
+
+        
+        Route::get('list-products', [AdminProductsController::class, 'index'])->name('admin.products.index');
+        Route::get('add-product', [AdminProductsController::class, 'create'])->name('admin.product.add');
+        Route::post('store-product', [AdminProductsController::class, 'store'])->name('admin.product.store');
+        Route::get('edit-product/{slug}', [AdminProductsController::class, 'edit'])->name('admin.product.edit');
+        Route::get('show-product/{slug}', [AdminProductsController::class, 'show'])->name('admin.product.show');
+        Route::post('update-product', [AdminProductsController::class, 'update'])->name('admin.product.update');
+
+        // Orders
+        Route::resource('orders', AdminOrderController::class)
+            ->only(['index', 'show']);
+
+        Route::patch('orders/{order}/status', [AdminOrderController::class, 'updateStatus'])
+            ->name('orders.update-status');
+
+        Route::get('orders/{order}/invoice', [AdminOrderController::class, 'invoice'])
+            ->name('orders.invoice');
+    });
+

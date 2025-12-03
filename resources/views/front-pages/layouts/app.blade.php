@@ -136,14 +136,14 @@
                             <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden group-hover:block">
                                 <a href="{{ route('admin.dashboard') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Dashboard</a>
                                 <a href="{{ route('bookings.my-bookings') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">My Bookings</a>
-                                <form method="POST" action="{{ route('logout') }}">
+                                <form method="POST" action="">
                                     @csrf
                                     <button type="submit" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Logout</button>
                                 </form>
                             </div>
                         </div>
                     @else
-                        <a href="{{ route('login') }}" class="text-gray-700 hover:text-[#10b981] transition">Login</a>
+                        <a href="" class="text-gray-700 hover:text-[#10b981] transition">Login</a>
                     @endauth
                 </div>
 
@@ -174,7 +174,7 @@
                         <button type="submit" class="block w-full text-left px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">Logout</button>
                     </form>
                 @else
-                    <a href="{{ route('login') }}" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">Login</a>
+                    <a href="" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">Login</a>
                 @endauth
             </div>
         </div>
