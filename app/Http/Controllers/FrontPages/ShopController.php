@@ -34,7 +34,7 @@ class ShopController extends BaseController
         $products = $query->paginate(12);
         $categories = Category::where('is_active', true)->get();
 
-        return view('shop.index', compact('products', 'categories'));
+        return view('front-pages.shop.index', compact('products', 'categories'));
     }
 
     public function show($slug)
@@ -46,6 +46,6 @@ class ShopController extends BaseController
             ->take(4)
             ->get();
 
-        return view('shop.show', compact('product', 'relatedProducts'));
+        return view('front-pages.shop.show', compact('product', 'relatedProducts'));
     }
 }

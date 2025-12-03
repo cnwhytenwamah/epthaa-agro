@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('front-pages.layouts.app')
 
 @section('title', 'Ralph Veterinary Service (RVS)')
 
@@ -118,7 +118,7 @@
 </section>
 
 <!-- Featured Services -->
-<section class="py-16 bg-gray-50">
+<section class="py-16 bg-gray-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
             <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
@@ -126,45 +126,84 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
             @forelse($services as $service)
-            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl transition group">
-                @if($service->image)
-                <img src="{{ Storage::url($service->image) }}" alt="{{ $service->title }}" class="w-full h-48 object-cover group-hover:scale-110 transition duration-300">
-                @else
-                <div class="w-full h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
-                    <svg class="w-20 h-20 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg>
-                </div>
-                @endif
-                
-                <div class="p-6">
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">{{ $service->title }}</h3>
-                    <p class="text-gray-600 mb-4">{{ Str::limit($service->description, 100) }}</p>
-                    
-                    @if($service->price)
-                    <p class="text-2xl font-bold text-blue-600 mb-4">From ₦{{ number_format($service->price, 2) }}</p>
+
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl transition group">
+                    @if($service->image)
+                        <img src="{{ Storage::url($service->image) }}"
+                             alt="{{ $service->title }}"
+                             class="w-full h-48 object-cover group-hover:scale-110 transition duration-300">
+                    @else
+                        <div class="w-full h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                            <svg class="w-20 h-20 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                        </div>
                     @endif
-                    
-                    <a href="{{ route('bookings.create', $service->slug) }}" class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-lg font-semibold transition">
-                        Book This Service
-                    </a>
+
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">
+                            {{ $service->title }}
+                        </h3>
+
+                        <p class="text-gray-600 mb-4">
+                            {{ Str::limit($service->description, 100) }}
+                        </p>
+
+                        @if($service->price)
+                            <p class="text-2xl font-bold text-blue-600 mb-4">
+                                From ₦{{ number_format($service->price, 2) }}
+                            </p>
+                        @endif
+
+                        <a href="{{ route('bookings.create', $service->slug) }}"
+                           class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-lg font-semibold transition">
+                            Book This Service
+                        </a>
+                    </div>
                 </div>
-            </div>
+
             @empty
-            <div class="col-span-4 text-center py-12">
-                <p class="text-gray-500 text-lg">No services available at the moment.</p>
-            </div>
+
+                <!-- Empty State -->
+                <div class="col-span-4 py-12 text-center">
+
+                    <div class="flex justify-center mb-6 space-x-6 text-gray-400 text-4xl">
+                        <i class="fa-solid fa-stethoscope"></i>
+                        <i class="fa-solid fa-paw"></i>
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">
+                        Services Not Available
+                    </h3>
+
+                    <p class="text-gray-500 max-w-md mx-auto">
+                        Our veterinary services are currently being prepared.
+                        Please check back soon.
+                    </p>
+
+                </div>
+
             @endforelse
+
         </div>
 
-        <div class="text-center mt-8">
-            <a href="{{ route('rvs.services') }}" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition">
-                View All Services
-            </a>
-        </div>
+        <!-- Button only shows when services exist -->
+        @if($services->count())
+            <div class="text-center mt-8">
+                <a href="{{ route('rvs.services') }}"
+                   class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition">
+                    View All Services
+                </a>
+            </div>
+        @endif
+
     </div>
 </section>
+
 
 <!-- How It Works -->
 <section class="py-16">

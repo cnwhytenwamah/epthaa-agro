@@ -16,7 +16,7 @@ class BookingController extends BaseController
         $services = Service::where('is_active', true)->get();
         $selectedService = $serviceSlug ? Service::where('slug', $serviceSlug)->first() : null;
 
-        return view('bookings.create', compact('services', 'selectedService'));
+        return view('front-pages.bookings.create', compact('services', 'selectedService'));
     }
 
     public function store(Request $request)

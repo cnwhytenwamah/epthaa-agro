@@ -13,7 +13,7 @@ class CartController extends BaseController
         $cart = session()->get('cart', []);
         $total = array_sum(array_map(fn($item) => $item['price'] * $item['quantity'], $cart));
         
-        return view('cart.index', compact('cart', 'total'));
+        return view('front-pages.cart.index', compact('cart', 'total'));
     }
 
     public function add(Request $request, $id)

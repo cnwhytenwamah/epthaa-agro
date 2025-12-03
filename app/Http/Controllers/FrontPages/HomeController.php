@@ -19,16 +19,16 @@ class HomeController extends BaseController
         $services = Service::where('is_active', true)->take(4)->get();
         $testimonials = Testimonial::where('is_featured', true)->take(6)->get();
 
-        return view('home', compact('featuredProducts', 'services', 'testimonials'));
+        return view('front-pages.home', compact('featuredProducts', 'services', 'testimonials'));
     }
 
     public function about()
     {
-        return view('about');
+        return view('front-pages.about');
     }
 
     public function contact()
     {
-        return view('contact');
+        return view('front-pages.contact');
     }
 }

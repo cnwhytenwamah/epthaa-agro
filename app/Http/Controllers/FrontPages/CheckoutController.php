@@ -17,14 +17,14 @@ class CheckoutController extends BaseController
         $cart = session()->get('cart', []);
         
         if (empty($cart)) {
-            return redirect()->route('shop.index')->with('error', 'Your cart is empty!');
+            return redirect()->route('front-pages.shop.index')->with('error', 'Your cart is empty!');
         }
 
         $subtotal = array_sum(array_map(fn($item) => $item['price'] * $item['quantity'], $cart));
         $deliveryFee = 2000; // Fixed delivery fee
         $total = $subtotal + $deliveryFee;
 
-        return view('checkout.index', compact('cart', 'subtotal', 'deliveryFee', 'total'));
+        return view('front-pages.checkout.index', compact('cart', 'subtotal', 'deliveryFee', 'total'));
     }
 
     public function process(Request $request)
@@ -42,7 +42,7 @@ class CheckoutController extends BaseController
         $cart = session()->get('cart', []);
         
         if (empty($cart)) {
-            return redirect()->route('shop.index')->with('error', 'Your cart is empty!');
+            return redirect()->route('front-pages.shop.index')->with('error', 'Your cart is empty!');
         }
 
         $subtotal = array_sum(array_map(fn($item) => $item['price'] * $item['quantity'], $cart));
@@ -112,7 +112,7 @@ class CheckoutController extends BaseController
         $paystack = new \Unicodeveloper\Paystack\Paystack();
         
         $data = [
-            'amount' => $order->total * 100, // Amount in kobo
+            'amount' => $order->total * 100, 
             'email' => $order->customer_email,
             'reference' => $order->order_number,
             'callback_url' => route('checkout.paystack.callback'),
@@ -234,12 +234,12 @@ class CheckoutController extends BaseController
                 ->with('success', 'Payment successful!');
         }
 
-        return redirect()->route('checkout.index')->with('error', 'Payment verification failed.');
+        return redirect()->route('front-pages.checkout.index')->with('error', 'Payment verification failed.');
     }
 
     public function success($orderNumber)
     {
         $order = Order::where('order_number', $orderNumber)->with('items')->firstOrFail();
-        return view('checkout.success', compact('order'));
+        return view('front-pages.checkout.success', compact('order'));
     }
 }

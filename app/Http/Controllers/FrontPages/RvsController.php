@@ -13,20 +13,20 @@ class RvsController extends BaseController
         $services = Service::where('is_active', true)->take(4)->get();
         $testimonials = Testimonial::where('is_featured', true)->take(3)->get();
         
-        return view('rvs.index', compact('services', 'testimonials'));
+        return view('front-pages.rvs.index', compact('services', 'testimonials'));
     }
 
     public function services()
     {
         $services = Service::where('is_active', true)->get();
         
-        return view('rvs.services', compact('services'));
+        return view('front-pages.rvs.services', compact('services'));
     }
 
     public function serviceDetail($slug)
     {
         $service = Service::where('slug', $slug)->where('is_active', true)->firstOrFail();
         
-        return view('rvs.service-detail', compact('service'));
+        return view('front-pages.rvs.service-detail', compact('service'));
     }
 }
