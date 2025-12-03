@@ -112,37 +112,81 @@
 
 <section class="py-16 bg-gray-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Heading -->
         <div class="text-center mb-12">
             <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Veterinary Services</h2>
             <p class="text-xl text-gray-600">Professional care for your animals</p>
         </div>
 
+        <!-- Services Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            @foreach($services as $service)
-            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition">
-                @if($service->image)
-                <img src="{{ Storage::url($service->image) }}" alt="{{ $service->title }}" class="w-full h-48 object-cover">
-                @else
-                <div class="w-full h-48 bg-gradient-to-br from-green-400 to-green-600"></div>
-                @endif
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2">{{ $service->title }}</h3>
-                    <p class="text-gray-600 mb-4">{{ Str::limit($service->description, 100) }}</p>
-                    <a href="{{ route('bookings.create', $service->slug) }}" class="text-primary hover:text-[#059669]font-semibold">
-                        Book Now →
-                    </a>
+
+            @forelse($services as $service)
+
+                <!-- Service Card -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition">
+                    
+                    @if($service->image)
+                        <img src="{{ Storage::url($service->image) }}"
+                             alt="{{ $service->title }}"
+                             class="w-full h-48 object-cover">
+                    @else
+                        <div class="w-full h-48 bg-gradient-to-br from-green-400 to-green-600"></div>
+                    @endif
+
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                            {{ $service->title }}
+                        </h3>
+
+                        <p class="text-gray-600 mb-4">
+                            {{ Str::limit($service->description, 100) }}
+                        </p>
+
+                        <a href="{{ route('bookings.create', $service->slug) }}"
+                           class="text-primary hover:text-[#059669] font-semibold">
+                            Book Now →
+                        </a>
+                    </div>
                 </div>
-            </div>
-            @endforeach
+
+            @empty
+
+                
+                <div class="col-span-full p-12 text-center">
+
+                    <div class="flex justify-center mb-6 space-x-6 text-gray-400 text-4xl">
+                        <i class="fa-solid fa-stethoscope"></i>
+                        <i class="fa-solid fa-paw"></i>
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">
+                        Services Not Available
+                    </h3>
+
+                    <p class="text-gray-500 max-w-md mx-auto">
+                        Our veterinary services are currently being prepared.
+                        Please check back soon — we&apos;ll be ready to serve your animals shortly!
+                    </p>
+                </div>
+
+            @endforelse
         </div>
 
-        <div class="text-center mt-8">
-            <a href="{{ route('rvs.services') }}" class="inline-block bg-[#10b981] hover:bg-[#059669] text-white px-8 py-3 rounded-lg font-semibold transition">
-                View All Services
-            </a>
-        </div>
+        @if($services->count())
+            <div class="text-center mt-8">
+                <a href="{{ route('rvs.services') }}"
+                   class="inline-block bg-[#10b981] hover:bg-[#059669] text-white px-8 py-3 rounded-lg font-semibold transition">
+                    View All Services
+                </a>
+            </div>
+        @endif
+
     </div>
 </section>
+
 
 <!-- Featured Products -->
 <section class="py-16">
@@ -153,46 +197,93 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            @foreach($featuredProducts as $product)
-            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition group">
-                <a href="{{ route('shop.show', $product->slug) }}">
-                    @if($product->images && count($product->images) > 0)
-                    <img src="{{ Storage::url($product->images[0]) }}" alt="{{ $product->name }}" class="w-full h-64 object-cover group-hover:scale-105 transition duration-300">
-                    @else
-                    <div class="w-full h-64 bg-gradient-to-br from-gray-200 to-gray-300"></div>
-                    @endif
-                    <div class="p-4">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-2">{{ $product->name }}</h3>
-                        <p class="text-gray-600 text-sm mb-3">{{ Str::limit($product->description, 60) }}</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-2xl font-bold text-primary">₦{{ number_format($product->price, 2) }}</span>
-                            @if($product->stock_quantity > 0)
-                            <span class="text-green-600 text-sm font-semibold">In Stock</span>
-                            @else
-                            <span class="text-red-600 text-sm font-semibold">Out of Stock</span>
-                            @endif
+
+            @forelse($featuredProducts as $product)
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition group">
+                    <a href="{{ route('shop.show', $product->slug) }}">
+
+                        @if($product->images && count($product->images) > 0)
+                            <img src="{{ Storage::url($product->images[0]) }}"
+                                 alt="{{ $product->name }}"
+                                 class="w-full h-64 object-cover group-hover:scale-105 transition duration-300">
+                        @else
+                            <div class="w-full h-64 bg-gradient-to-br from-gray-200 to-gray-300"></div>
+                        @endif
+
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                                {{ $product->name }}
+                            </h3>
+
+                            <p class="text-gray-600 text-sm mb-3">
+                                {{ Str::limit($product->description, 60) }}
+                            </p>
+
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-bold text-primary">
+                                    ₦{{ number_format($product->price, 2) }}
+                                </span>
+
+                                @if($product->stock_quantity > 0)
+                                    <span class="text-green-600 text-sm font-semibold">In Stock</span>
+                                @else
+                                    <span class="text-red-600 text-sm font-semibold">Out of Stock</span>
+                                @endif
+                            </div>
                         </div>
+                    </a>
+
+                    <div class="p-4 pt-0">
+                        <form action="{{ route('cart.add', $product->id) }}" method="POST">
+                            @csrf
+                            <button type="submit"
+                                    class="w-full bg-[#10b981] hover:bg-[#059669] text-white py-2 rounded-lg font-semibold transition"
+                                    {{ $product->stock_quantity <= 0 ? 'disabled' : '' }}>
+                                Add to Cart
+                            </button>
+                        </form>
                     </div>
-                </a>
-                <div class="p-4 pt-0">
-                    <form action="{{ route('cart.add', $product->id) }}" method="POST">
-                        @csrf
-                        <button type="submit" class="w-full bg-[#10b981] hover:bg-[#059669] text-white py-2 rounded-lg font-semibold transition" {{ $product->stock_quantity <= 0 ? 'disabled' : '' }}>
-                            Add to Cart
-                        </button>
-                    </form>
                 </div>
-            </div>
-            @endforeach
+
+            @empty
+
+                <div class="col-span-full p-12 text-center">
+
+                    <div class="flex justify-center mb-6 space-x-6 text-gray-400 text-4xl">
+                        <i class="fa-solid fa-box-open"></i>
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-3">
+                        Products Not Available
+                    </h3>
+
+                    <p class="text-gray-600 max-w-md mx-auto">
+                        Our featured products are currently not available.
+                        Please check back soon for new stock updates.
+                    </p>
+
+                </div>
+
+            @endforelse
+
         </div>
 
-        <div class="text-center mt-8">
-            <a href="{{ route('shop.index') }}" class="inline-block bg-[#10b981] hover:bg-[#059669] text-white px-8 py-3 rounded-lg font-semibold transition">
-                View All Products
-            </a>
-        </div>
+        <!-- Show button only when products exist -->
+        @if($featuredProducts->count())
+            <div class="text-center mt-8">
+                <a href="{{ route('shop.index') }}"
+                   class="inline-block bg-[#10b981] hover:bg-[#059669] text-white px-8 py-3 rounded-lg font-semibold transition">
+                    View All Products
+                </a>
+            </div>
+        @endif
+
     </div>
 </section>
+
 
 <!-- Testimonials -->
 @if($testimonials->count() > 0)
