@@ -4,10 +4,10 @@ namespace App\Enum;
 
 enum Status:string
 {
-    case Draft = 'draft';
-    case Published = 'published';
-    case Inactive = 'inactive';
-    case Deleted = 'deleted';
+    case Pending = 'pending';
+    case Confirmed = 'confirmed';
+    case Completed = 'completed';    
+    case Cancelled = 'cancelled';
 
     public static function values(): array
     {
@@ -17,10 +17,10 @@ enum Status:string
     public function label(): string
     {
         return match ($this) {
-            self::Draft => 'Draft',
-            self::Published => 'Published',
-            self::Inactive => 'Inactive',
-            self::Deleted => 'Deleted',
+            self::Pending => 'Pending',
+            self::Confirmed => 'Confirmed',
+            self::Completed => 'Completed',
+            self::Cancelled => 'Cancelled',
         };
     }
 

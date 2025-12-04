@@ -6,9 +6,12 @@ use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use App\Services\Admin\ProductService;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\BaseController;
+use App\Http\Requests\ProductFormRequest;
 
 class ProductController extends BaseController
 {
@@ -28,7 +31,7 @@ class ProductController extends BaseController
         return view('admin.products.create', compact('categories'));
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(ProductFormRequest $request): RedirectResponse
     {
         $response = $this->productService->create($request);
 

@@ -3,6 +3,7 @@
 namespace App\Dto;
 
 use App\Dto\BaseDto;
+use App\Enum\Status;
 use App\Http\Requests\BookingFormRequest;
 
 readonly class BookingDto extends BaseDto
@@ -18,7 +19,7 @@ readonly class BookingDto extends BaseDto
         public string $preferred_date,
         public ?string $preferred_time,
         public string $issue_description,
-        public string $status = 'pending',
+        public Status   $status,
         public ?string $admin_notes = null,
     ) {}
 
@@ -35,7 +36,7 @@ readonly class BookingDto extends BaseDto
             'preferred_date' => $this->preferred_date,
             'preferred_time' => $this->preferred_time,
             'issue_description' => $this->issue_description,
-            'status' => $this->status,
+            'status'         => $this->status->value,
             'admin_notes' => $this->admin_notes,
         ]);
     }
@@ -53,7 +54,7 @@ readonly class BookingDto extends BaseDto
             preferred_date: $request->validated('preferred_date'),
             preferred_time: $request->validated('preferred_time') ?? null,
             issue_description: $request->validated('issue_description'),
-            status: $request->validated('status') ?? 'pending',
+            status: Status::from($data['status']),
             admin_notes: $request->validated('admin_notes') ?? null,
         );
     }

@@ -6,11 +6,10 @@ use App\Models\Booking;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\BaseController;
-use App\Http\Requests\BookingsFormRequest;
 
 class BookingController extends BaseController
 {
-    public function index(BookingsFormRequest $request)
+    public function index(Request $request)
     {
         $query = Booking::with(['service', 'user']);
 
@@ -29,7 +28,7 @@ class BookingController extends BaseController
         return view('admin.bookings.show', compact('booking'));
     }
 
-    public function updateStatus(BookingsFormRequest $request, Booking $booking)
+    public function updateStatus(Request $request, Booking $booking)
     {
         $validated = $request->validate([
             'status' => 'required|in:pending,confirmed,completed,cancelled',

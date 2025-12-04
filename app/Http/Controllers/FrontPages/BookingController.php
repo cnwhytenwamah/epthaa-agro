@@ -42,13 +42,13 @@ class BookingController extends BaseController
         // Notification::route('mail', config('mail.from.address'))
         //     ->notify(new BookingCreated($booking));
 
-        return redirect()->route('bookings.success')
+        return redirect()->route('front-pages.bookings.success')
             ->with('success', 'Booking request submitted successfully! We will contact you shortly.');
     }
 
     public function success()
     {
-        return view('bookings.success');
+        return view('front-pages.bookings.success');
     }
 
     public function myBookings()
@@ -62,6 +62,6 @@ class BookingController extends BaseController
             ->orderBy('created_at', 'desc')
             ->paginate(10);
 
-        return view('bookings.my-bookings', compact('bookings'));
+        return view('front-pages.bookings.my-bookings', compact('bookings'));
     }
 }

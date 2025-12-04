@@ -2,6 +2,10 @@
 
 namespace App\Dto;
 
+use App\Enum\PaymentMethod;
+use App\Enum\PaymentStatus;
+use App\Enum\PaymentReference;
+
 
 readonly class OrderDto extends BaseDto
 {
@@ -20,9 +24,9 @@ readonly class OrderDto extends BaseDto
         public float $subtotal,
         public float $delivery_fee,
         public float $total,
-        public string $payment_method,
-        public string $payment_status,
-        public ?string $payment_reference,
+        public PaymentMethod $payment_method,
+        public PaymentStatus $payment_status,
+        public ?PaymentReference $payment_reference,
         public string $order_status,
         public ?string $notes,
         public array $items
@@ -64,9 +68,9 @@ readonly class OrderDto extends BaseDto
             subtotal: $request->validated('subtotal'),
             delivery_fee: $request->validated('delivery_fee'),
             total: $request->validated('total'),
-            payment_method: $request->validated('payment_method'),
-            payment_status: $request->validated('payment_status'),
-            payment_reference: $request->validated('payment_reference'),
+            payment_method: PaymentMethod::from($data['payment_method']),
+            payment_status: PaymentStatus::from(['payment_status']),
+            payment_reference: PaymentReference::from(['payment_reference']),
             order_status: $request->validated('order_status'),
             notes: $request->validated('notes'),
         );

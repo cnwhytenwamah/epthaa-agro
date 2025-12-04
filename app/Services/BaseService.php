@@ -7,11 +7,12 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class BaseService
 {
-    protected function successMsg(string $message,  array|Collection|Model|JsonResource|int $data=[]):stdClass
+    protected function successMsg(string $message,  Collection|Model|JsonResource|array|int|Paginator $data = []):stdClass
     {
         return (object)[
             'status' => true,

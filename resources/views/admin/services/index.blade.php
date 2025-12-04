@@ -10,7 +10,7 @@
                 <h5 class="text-white op-7 mb-2">Create, edit and remove services</h5>
             </div>
             <div class="ml-md-auto">
-                <a href="{{ route('admin.services.create') }}" class="btn btn-success btn-round">
+                <a href="{{ route('admin.services.create') }}" class="btn btn-round" style="background-color: #10b981; color: #fff;">
                     <i class="fas fa-plus"></i> Add Service
                 </a>
             </div>

@@ -34,6 +34,27 @@
 				</li>
 
 				<li class="nav-item">
+					<a data-toggle="collapse" href="#categrory">
+						<i class="fas fa-folder"></i>
+						<p>Categories</p>
+						<span class="caret"></span>
+					</a>
+					<div class="collapse" id="categrory">
+						<ul class="nav nav-collapse">
+							<li>
+								<a href="{{ route('admin.categories.create') }}">
+									<span class="sub-item">Add Category</span>
+								</a>
+							</li>
+							<li>
+								<a href="{{ route('admin.categories.index') }}">
+									<span class="sub-item">List Category</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li class="nav-item">
 					<a data-toggle="collapse" href="#rvs">
 						<i class="fas fa-heartbeat"></i>
 						<p>RVS Module</p>
@@ -47,7 +68,7 @@
 								</a>
 							</li>
 							<li>
-								<a href="">
+								<a href="{{ route('admin.bookings.index') }}">
 									<span class="sub-item">Bookings & Scheduling</span>
 								</a>
 							</li>
@@ -69,7 +90,7 @@
 					<div class="collapse" id="jvs">
 						<ul class="nav nav-collapse">
 							<li>
-								<a href="">
+								<a href="{{ route('admin.products.index') }}">
 									<span class="sub-item">Products & Inventory</span>
 								</a>
 							</li>

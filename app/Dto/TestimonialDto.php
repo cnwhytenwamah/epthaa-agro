@@ -2,7 +2,9 @@
 
 namespace App\Dto;
 
-class TestimonialDto
+use App\Dto\BaseDto;
+
+readonly class TestimonialDto extends BaseDto
 {
     /**
      * Create a new class instance.

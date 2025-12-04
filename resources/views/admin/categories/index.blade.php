@@ -7,13 +7,15 @@
     <div class="page-inner py-5">
         <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
             <div>
-                <h2 class="text-white pb-2 fw-bold">Manage Products</h2>
-                <h5 class="text-white op-7 mb-2">View, add, edit and delete veterinary products</h5>
+                <h2 class="text-white pb-2 fw-bold">Categories Management</h2>
+                <h5 class="text-white op-7 mb-2">View, add, edit and manage product categories (JVS)</h5>
             </div>
 
             <div class="ml-md-auto mt-3 mt-md-0">
-                <a href="{{ route('admin.products.create') }}" class="btn btn-round" style="background-color: #10b981; color: #fff;">
-                    <i class="fas fa-plus"></i> Add Product
+                <a href="{{ route('admin.categories.create') }}"
+                   class="btn btn-round"
+                   style="background-color:#10b981;color:#fff;">
+                    <i class="fas fa-plus"></i> Add Category
                 </a>
             </div>
         </div>
@@ -23,10 +25,29 @@
 {{-- ===== Body ===== --}}
 <div class="page-inner mt--5">
 
-    {{-- ===== Stats Row ===== --}}
+    {{-- ===== Stats ===== --}}
     <div class="row">
 
-        {{-- Active Products --}}
+        <div class="col-md-3">
+            <div class="card card-stats card-round">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-icon">
+                            <div class="icon-big text-center bubble-shadow-small">
+                                <i class="fas fa-layer-group text-pink"></i>
+                            </div>
+                        </div>
+                        <div class="col ml-3">
+                            <div class="numbers">
+                                <p class="card-category">Total Categories</p>
+                                <h4 class="card-title">{{ $statistics['total_categories'] }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="col-md-3">
             <div class="card card-stats card-round">
                 <div class="card-body">
@@ -39,9 +60,7 @@
                         <div class="col ml-3">
                             <div class="numbers">
                                 <p class="card-category">Active</p>
-                                <h4 class="card-title">
-                                    {{ $products->where('is_active', true)->count() }}
-                                </h4>
+                                <h4 class="card-title">{{ $statistics['active_categories'] }}</h4>
                             </div>
                         </div>
                     </div>
@@ -49,22 +68,19 @@
             </div>
         </div>
 
-        {{-- Featured Products --}}
         <div class="col-md-3">
             <div class="card card-stats card-round">
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col-icon">
                             <div class="icon-big text-center bubble-shadow-small">
-                                <i class="fas fa-star text-pink"></i>
+                                <i class="fas fa-times-circle text-pink"></i>
                             </div>
                         </div>
                         <div class="col ml-3">
                             <div class="numbers">
-                                <p class="card-category">Featured</p>
-                                <h4 class="card-title">
-                                    {{ $products->where('is_featured', true)->count() }}
-                                </h4>
+                                <p class="card-category">Inactive</p>
+                                <h4 class="card-title">{{ $statistics['inactive_categories'] }}</h4>
                             </div>
                         </div>
                     </div>
@@ -72,30 +88,6 @@
             </div>
         </div>
 
-        {{-- Out of Stock --}}
-        <div class="col-md-3">
-            <div class="card card-stats card-round">
-                <div class="card-body">
-                    <div class="row align-items-center">
-                        <div class="col-icon">
-                            <div class="icon-big text-center bubble-shadow-small">
-                                <i class="fas fa-box-open text-pink"></i>
-                            </div>
-                        </div>
-                        <div class="col ml-3">
-                            <div class="numbers">
-                                <p class="card-category">Out of Stock</p>
-                                <h4 class="card-title">
-                                    {{ $products->where('stock_quantity', 0)->count() }}
-                                </h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        {{-- Total Products --}}
         <div class="col-md-3">
             <div class="card card-stats card-round">
                 <div class="card-body">
@@ -107,10 +99,8 @@
                         </div>
                         <div class="col ml-3">
                             <div class="numbers">
-                                <p class="card-category">Total Products</p>
-                                <h4 class="card-title">
-                                    {{ $products->total() }}
-                                </h4>
+                                <p class="card-category">With Products</p>
+                                <h4 class="card-title">{{ $statistics['categories_with_products'] }}</h4>
                             </div>
                         </div>
                     </div>
@@ -120,14 +110,29 @@
 
     </div>
 
-    {{-- ===== Products Table ===== --}}
+    {{-- ===== Categories Table ===== --}}
     <div class="row mt-4">
         <div class="col-md-12">
+
             <div class="card">
 
                 <div class="card-header">
                     <div class="d-flex align-items-center">
-                        <h4 class="card-title">Products List</h4>
+                        <h4 class="card-title">Categories List</h4>
+
+                        {{-- Search --}}
+                        <form method="GET"
+                              action="{{ route('admin.categories.index') }}"
+                              class="ml-md-auto form-inline">
+                            <input type="text"
+                                   name="search"
+                                   value="{{ request('search') }}"
+                                   class="form-control mr-2"
+                                   placeholder="Search categories...">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
                     </div>
                 </div>
 
@@ -151,80 +156,75 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
+                                    <th>#</th>
                                     <th>Category</th>
-                                    <th>Price</th>
-                                    <th>Stock</th>
+                                    <th>Description</th>
+                                    <th>Products</th>
                                     <th>Status</th>
-                                    <th>Featured</th>
                                     <th>Date</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
 
                             <tbody>
-                                @forelse($products as $product)
+
+                                @forelse($categories as $category)
 
                                 <tr>
-                                    <td>#{{ $product->id }}</td>
+                                    <td>#{{ $category->id }}</td>
 
                                     <td>
-                                        <strong>{{ $product->name }}</strong><br>
-                                        <small class="text-muted">
-                                            SKU: {{ $product->sku }}
-                                        </small>
+                                        <strong>{{ $category->name }}</strong><br>
+                                        <small class="text-muted">{{ $category->slug }}</small>
                                     </td>
 
                                     <td>
-                                        {{ $product->category->name ?? 'N/A' }}
+                                        {{ Str::limit($category->description, 60) }}
                                     </td>
 
                                     <td>
-                                        ₦{{ number_format($product->price, 2) }}
+                                        <span class="badge badge-info">
+                                            {{ $category->products_count }} Products
+                                        </span>
                                     </td>
 
                                     <td>
-                                        {{ $product->stock_quantity }}
-                                    </td>
-
-                                    <td>
-                                        @if($product->is_active)
+                                        @if($category->is_active)
                                             <span class="badge badge-success">Active</span>
                                         @else
-                                            <span class="badge badge-danger">Inactive</span>
+                                            <span class="badge badge-secondary">Inactive</span>
                                         @endif
                                     </td>
 
                                     <td>
-                                        @if($product->is_featured)
-                                            <span class="badge badge-warning">Yes</span>
-                                        @else
-                                            <span class="badge badge-secondary">No</span>
-                                        @endif
-                                    </td>
-
-                                    <td>
-                                        {{ $product->created_at->format('M d, Y') }}
+                                        {{ $category->created_at->format('M d, Y') }}
                                     </td>
 
                                     <td>
                                         <div class="btn-group">
 
                                             {{-- Edit --}}
-                                            <a href="{{ route('admin.products.edit', $product) }}"
+                                            <a href="{{ route('admin.categories.edit', $category) }}"
                                                class="btn btn-sm btn-info"
                                                title="Edit">
                                                 <i class="fas fa-edit"></i>
                                             </a>
 
+                                            {{-- Toggle --}}
+                                            <form action="{{ route('admin.categories.toggle-status', $category) }}"
+                                                  method="POST">
+                                                @csrf
+                                                <button class="btn btn-sm btn-warning" title="Toggle Status">
+                                                    <i class="fas fa-sync"></i>
+                                                </button>
+                                            </form>
+
                                             {{-- Delete --}}
-                                            <form action="{{ route('admin.products.destroy', $product) }}"
+                                            <form action="{{ route('admin.categories.destroy', $category) }}"
                                                   method="POST"
-                                                  onsubmit="return confirm('Are you sure you want to delete this product?')">
+                                                  onsubmit="return confirm('Delete this category?')">
                                                 @csrf
                                                 @method('DELETE')
-
                                                 <button class="btn btn-sm btn-danger" title="Delete">
                                                     <i class="fas fa-trash"></i>
                                                 </button>
@@ -236,10 +236,11 @@
 
                                 @empty
                                 <tr>
-                                    <td colspan="9" class="text-center">
-                                        No products found
+                                    <td colspan="7" class="text-center">
+                                        No categories found
                                     </td>
                                 </tr>
+
                                 @endforelse
 
                             </tbody>
@@ -247,13 +248,15 @@
 
                     </div>
 
-                    {{-- Pagination --}}
+                    {{-- ===== Pagination ===== --}}
                     <div class="mt-3">
-                        {{ $products->links() }}
+                        {{ $categories->links() }}
                     </div>
 
                 </div>
+
             </div>
+
         </div>
     </div>
 

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\FrontPages\RvsController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\FrontPages\CartController;
@@ -86,8 +87,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin'])->group(functi
         Route::resource('services', AdminServiceController::class);
 
         // Bookings
-        Route::resource('bookings', AdminBookingController::class)
-            ->only(['index', 'show', 'destroy']);
+        Route::resource('bookings', AdminBookingController::class)->only(['index', 'show', 'destroy']);
 
         Route::patch('bookings/{booking}/status', [AdminBookingController::class, 'updateStatus'])
             ->name('bookings.update-status');
@@ -104,13 +104,15 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin'])->group(functi
         Route::post('update-product', [AdminProductsController::class, 'update'])->name('admin.product.update');
 
         // Orders
-        Route::resource('orders', AdminOrderController::class)
-            ->only(['index', 'show']);
+        Route::resource('orders', AdminOrderController::class)->only(['index', 'show']);
 
-        Route::patch('orders/{order}/status', [AdminOrderController::class, 'updateStatus'])
-            ->name('orders.update-status');
+        Route::patch('orders/{order}/status', [AdminOrderController::class, 'updateStatus'])->name('orders.update-status');
 
-        Route::get('orders/{order}/invoice', [AdminOrderController::class, 'invoice'])
-            ->name('orders.invoice');
+        Route::get('orders/{order}/invoice', [AdminOrderController::class, 'invoice'])->name('orders.invoice');
+
+
+        // Category
+        Route::resource('categories', CategoryController::class);
+        Route::post('categories/{category}/toggle-status', [CategoryController::class, 'toggleStatus'])->name('categories.toggle-status');
     });
 

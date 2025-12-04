@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class CategoryFormRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class CategoryFormRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +22,41 @@ class CategoryFormRequest extends FormRequest
      */
     public function rules(): array
     {
+        $categoryId = $this->route('category');
+        
         return [
-            //
+            'name' => [
+                'required',
+                'string',
+                'max:255',
+                Rule::unique('categories', 'name')->ignore($categoryId)
+            ],
+            'description' => 'nullable|string',
+            'image' => $this->isMethod('post') 
+                ? 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+                : 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'is_active' => 'boolean'
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'Category name is required',
+            'name.unique' => 'This category name already exists',
+            'name.max' => 'Category name must not exceed 255 characters',
+            'image.image' => 'File must be an image',
+            'image.mimes' => 'Image must be jpeg, png, jpg, or gif format',
+            'image.max' => 'Image size must not exceed 2MB',
+        ];
+    }
+
+    public function attributes(): array
+    {
+        return [
+            'name' => 'category name',
+            'description' => 'category description',
+            'image' => 'category image',
         ];
     }
 }

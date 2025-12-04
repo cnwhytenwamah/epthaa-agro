@@ -21,7 +21,7 @@
             </div>
 
             <div class="card-footer text-right">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn" style="background-color: #10b981; color: #fff;">
                     Update Service
                 </button>
             </div>
