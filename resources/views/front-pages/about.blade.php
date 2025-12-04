@@ -3,9 +3,7 @@
 @section('title', 'About Us')
 
 @section('content')
-<!-- Hero Section -->
 <section class="relative bg-[url('assets/img/hero.jpg')] bg-cover bg-center text-gray-500 py-16">    
-    <!-- Dark overlay -->
     <div class="absolute inset-0 bg-black/50"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -15,7 +13,6 @@
     </div>
 </section>
 
-<!-- Company Overview -->
 <section class="py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -40,69 +37,81 @@
     </div>
 </section>
 
-<!-- Our Brands -->
 <section class="py-16 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-4xl font-bold text-gray-900 text-center mb-12">Our Brands</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- RVS -->
             <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                <div class="h-48 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white p-8">
-                    <div class="text-center">
-                        <h3 class="text-4xl font-bold mb-2">RVS</h3>
-                        <p class="text-xl text-blue-100">Ralph Veterinary Service</p>
-                    </div>
-                </div>
-                <div class="p-8">
-                    <p class="text-gray-700 mb-4 leading-relaxed">
-                        Our professional veterinary service division provides comprehensive animal healthcare including treatment, diagnostics, vaccination programs, farm consultancy, and breeding advisory services.
-                    </p>
-                    <h4 class="font-semibold text-gray-900 mb-2">Services Include:</h4>
-                    <ul class="space-y-2 text-gray-700">
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-[#10b981] mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                            </svg>
-                            <span>Professional veterinary treatment and diagnostics</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-[#10b981] mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                            </svg>
-                            <span>Comprehensive vaccination programs</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-[#10b981] mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                            </svg>
-                            <span>Expert farm consultancy services</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-[#10b981] mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                            </svg>
-                            <span>Breeding advisory and support</span>
-                        </li>
-                    </ul>
-                    <a href="{{ route('rvs.services') }}" class="inline-block mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition">
-                        View Services
-                    </a>
+            <div class="h-48 bg-[url('assets/img/rvs.jpg')] bg-cover bg-center relative flex items-center justify-center text-white p-8">
+                <div class="absolute inset-0 bg-black/50"></div>
+
+                <div class="relative text-center">
+                    <h3 class="text-4xl font-bold mb-2">RVS</h3>
+                    <p class="text-xl text-blue-100">Ralph Veterinary Service</p>
                 </div>
             </div>
 
-            <!-- JVS -->
+            <div class="p-8">
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    Our professional veterinary service division provides comprehensive animal healthcare
+                    including treatment, diagnostics, vaccination programs, farm consultancy, and breeding
+                    advisory services.
+                </p>
+                <h4 class="font-semibold text-gray-900 mb-2">Services Include:</h4>
+                <ul class="space-y-2 text-gray-700">
+                    <li class="flex items-start">
+                        <svg class="w-5 h-5 text-[#10b981] mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Professional veterinary treatment and diagnostics</span>
+                    </li>
+
+                    <li class="flex items-start">
+                        <svg class="w-5 h-5 text-[#10b981] mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Comprehensive vaccination programs</span>
+                    </li>
+
+                    <li class="flex items-start">
+                        <svg class="w-5 h-5 text-[#10b981] mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Expert farm consultancy services</span>
+                    </li>
+
+                    <li class="flex items-start">
+                        <svg class="w-5 h-5 text-[#10b981] mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Breeding advisory and support</span>
+                    </li>
+                </ul>
+
+                <a href="{{ route('rvs.services') }}"
+                class="inline-block mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition">
+                    View Services
+                </a>
+            </div>
+        </div>
+
+
             <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                <div class="h-48 bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center text-white p-8">
-                    <div class="text-center">
+                <div class="h-48 bg-[url('assets/img/rvs.jpg')] bg-cover bg-center relative flex items-center justify-center text-white p-8">
+                    <div class="absolute inset-0 bg-black/50"></div>
+                    <div class="relative text-center">
                         <h3 class="text-4xl font-bold mb-2">JVS</h3>
                         <p class="text-xl text-green-100">Just Veterinary Service</p>
                     </div>
                 </div>
                 <div class="p-8">
                     <p class="text-gray-700 mb-4 leading-relaxed">
-                        Our retail division offers a complete range of veterinary medicines, animal feeds, supplements, farming tools, and accessories to support your agricultural operations.
+                        Our retail division offers a complete range of veterinary medicines,
+                        animal feeds, supplements, farming tools, and accessories to support
+                        your agricultural operations.
                     </p>
+
                     <h4 class="font-semibold text-gray-900 mb-2">Products Include:</h4>
                     <ul class="space-y-2 text-gray-700">
                         <li class="flex items-start">
@@ -111,18 +120,21 @@
                             </svg>
                             <span>Quality veterinary medicines and drugs</span>
                         </li>
+
                         <li class="flex items-start">
                             <svg class="w-5 h-5 text-[#10b981] mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                             </svg>
                             <span>Premium animal feeds and supplements</span>
                         </li>
+
                         <li class="flex items-start">
                             <svg class="w-5 h-5 text-[#10b981] mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                             </svg>
                             <span>Essential farming tools and equipment</span>
                         </li>
+
                         <li class="flex items-start">
                             <svg class="w-5 h-5 text-[#10b981] mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
@@ -130,7 +142,10 @@
                             <span>Animal care accessories</span>
                         </li>
                     </ul>
-                    <a href="{{ route('shop.index') }}" class="inline-block mt-6 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition">
+
+                    <a href="{{ route('shop.index') }}"
+                    class="inline-block mt-6 bg-green-600 hover:bg-green-700
+                            text-white px-6 py-3 rounded-lg font-semibold transition">
                         Shop Now
                     </a>
                 </div>
@@ -139,7 +154,6 @@
     </div>
 </section>
 
-<!-- Core Values -->
 <section class="py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-4xl font-bold text-gray-900 text-center mb-12">Our Core Values</h2>
@@ -188,7 +202,6 @@
     </div>
 </section>
 
-<!-- CTA -->
 <section class="py-16 bg-gradient-to-r from-[#10b981] to-[#059669] text-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-4xl font-bold mb-4">Ready to Partner With Us?</h2>

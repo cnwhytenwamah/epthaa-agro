@@ -29,8 +29,8 @@
                 </div>
                 <h3 class="text-xl font-bold text-gray-900 mb-2">Phone</h3>
                 <p class="text-gray-600 mb-2">Call us anytime</p>
-                <a href="tel:+234{{ env('WHATSAPP_NUMBER') }}" class="text-primary hover:text-secondary font-semibold">
-                    +234 {{ env('WHATSAPP_NUMBER') }}
+                <a href="tel:{{ env('WHATSAPP_NUMBER') }}" class="text-primary hover:text-secondary font-semibold">
+                    {{ env('WHATSAPP_NUMBER') }}
                 </a>
             </div>
 
@@ -56,7 +56,7 @@
                 </div>
                 <h3 class="text-xl font-bold text-gray-900 mb-2">Location</h3>
                 <p class="text-gray-600 mb-2">Visit us at</p>
-                <p class="text-primary font-semibold">Lagos, Nigeria</p>
+                <p class="text-primary font-semibold">Abakaliki, Nigeria</p>
             </div>
         </div>
 

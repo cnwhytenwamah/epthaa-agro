@@ -52,7 +52,7 @@
                                 <label class="block text-sm font-medium text-gray-700 mb-2">State *</label>
                                 <select name="state" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent @error('state') border-red-500 @enderror">
                                     <option value="">Select State</option>
-                                    <option value="Lagos">Lagos</option>
+                                    <option value="Abakaliki">Abakaliki</option>
                                     <option value="Abuja">Abuja</option>
                                     <option value="Kano">Kano</option>
                                     <option value="Rivers">Rivers</option>

@@ -62,50 +62,69 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
             <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition">
-                <div class="h-48 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
-                    <div class="text-center text-white">
+                <div class="h-48 bg-[url('assets/img/rvs.jpg')] bg-cover bg-center relative flex items-center justify-center">
+                    <div class="absolute inset-0 bg-black/50"></div>
+
+                    <div class="relative text-center text-white">
                         <svg class="w-20 h-20 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                         </svg>
+
                         <h3 class="text-3xl font-bold">RVS</h3>
                         <p class="text-blue-100">Ralph Veterinary Service</p>
                     </div>
                 </div>
+
                 <div class="p-6">
                     <p class="text-gray-600 mb-4">
-                        Professional veterinary treatment, diagnostics, vaccination programs, farm consultancy, and breeding advisory services.
+                        Professional veterinary treatment, diagnostics, vaccination programs,
+                        farm consultancy, and breeding advisory services.
                     </p>
-                    <a href="{{ route('rvs.index') }}" class="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold">
+
+                    <a href="{{ route('rvs.index') }}" 
+                    class="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold">
                         Learn More
                         <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 5l7 7-7 7" />
                         </svg>
                     </a>
                 </div>
             </div>
 
+
             <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition">
-                <div class="h-48 bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center">
-                    <div class="text-center text-white">
+
+                <div class="h-48 bg-[url('assets/img/rvs.jpg')] bg-cover bg-center relative flex items-center justify-center">
+                    <div class="absolute inset-0 bg-black/50"></div>
+
+                    <div class="relative text-center text-white">
                         <svg class="w-20 h-20 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                         </svg>
+
                         <h3 class="text-3xl font-bold">JVS</h3>
                         <p class="text-green-100">Just Veterinary Service</p>
                     </div>
                 </div>
                 <div class="p-6">
                     <p class="text-gray-600 mb-4">
-                        Complete range of veterinary medicines, animal feeds, supplements, tools, and accessories for all your agricultural needs.
+                        Complete range of veterinary medicines, animal feeds, supplements, tools,
+                        and accessories for all your agricultural needs.
                     </p>
+
                     <a href="{{ route('shop.index') }}" class="inline-flex items-center text-green-600 hover:text-green-700 font-semibold">
                         Shop Now
                         <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 5l7 7-7 7" />
                         </svg>
                     </a>
                 </div>
             </div>
+
         </div>
     </div>
 </section>

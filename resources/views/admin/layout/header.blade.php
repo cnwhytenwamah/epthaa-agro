@@ -6,7 +6,7 @@
             <img src="{{asset('home/images/logo-light.png')}}" alt="" width="100">
         </a> -->
 		<a href="{{ route('admin.dashboard') }}" class="logo text-white fw-bold fs-4 text-uppercase">
-			EPTHAA AGRO LIMITED
+			<img src="{{asset('assets/img/logo.jpg')}}" alt="EPTHAA AGRO LIMITED" width="100" height="50">
 		</a>
 		<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon">
