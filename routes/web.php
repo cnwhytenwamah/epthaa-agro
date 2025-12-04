@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\FrontPages\RvsController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -88,6 +89,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin'])->group(functi
 
         // Bookings
         Route::resource('bookings', AdminBookingController::class)->only(['index', 'show', 'destroy']);
+        
 
         Route::patch('bookings/{booking}/status', [AdminBookingController::class, 'updateStatus'])
             ->name('bookings.update-status');
@@ -114,5 +116,11 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin'])->group(functi
         // Category
         Route::resource('categories', CategoryController::class);
         Route::post('categories/{category}/toggle-status', [CategoryController::class, 'toggleStatus'])->name('categories.toggle-status');
+
+
+        // Orders
+        Route::resource('orders', OrderController::class);
+        Route::get('orders/{order}/invoice', [OrderController::class, 'invoice'])->name('orders.invoice');
+
     });
 
