@@ -3,13 +3,13 @@
 @section('title', 'Book a Service')
 
 @section('content')
-<section class="relative bg-[url('assets/img/bg-hero.jpg')] bg-cover bg-center text-gray-500 py-16">    
-    <div class="absolute inset-0 bg-black/50"></div>
+<section class="relative bg-[url('/assets/img/bg-hero.jpg')] bg-cover bg-center text-[#10b981] py-16">    
+    <div class="absolute inset-0 bg-black/40"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 class="text-4xl md:text-5xl font-bold mb-4">Book Veterinary Service</h1>
 
-        <p class="text-xl text-gray-500">Professional care for your animals</p>
+        <p class="text-xl">Professional care for your animals</p>
     </div>
 </section>
 

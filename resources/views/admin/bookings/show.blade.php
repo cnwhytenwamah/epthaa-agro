@@ -122,7 +122,7 @@
                             <textarea name="admin_notes" id="admin_notes" rows="4" class="form-control" placeholder="Add notes about this booking...">{{ $booking->admin_notes }}</textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary w-100">Update Booking</button>
+                        <button type="submit" class="btn w-100" style="background-color: #10b981; color: #fff;">Update Booking</button>
                     </form>
                 </div>
             </div>
@@ -133,11 +133,11 @@
                     <h5 class="card-title">Quick Actions</h5>
                 </div>
                 <div class="card-body d-flex flex-column gap-2">
-                    <a href="tel:{{ $booking->client_phone }}" class="btn btn-success btn-block">
+                    <a href="tel:{{ $booking->client_phone }}" class="btn btn-block" style="background-color: #059669; color: #fff;">
                         <i class="fas fa-phone mr-2"></i> Call Client
                     </a>
                     @if($booking->client_email)
-                    <a href="mailto:{{ $booking->client_email }}" class="btn btn-primary btn-block">
+                    <a href="mailto:{{ $booking->client_email }}" class="btn btn-block" style="background-color: #059669; color: #fff;">
                         <i class="fas fa-envelope mr-2"></i> Send Email
                     </a>
                     @endif
@@ -160,7 +160,7 @@
             </div>
 
             {{-- Back Button --}}
-            <a href="{{ route('admin.bookings.index') }}" class="btn btn-secondary btn-block">
+            <a href="{{ route('admin.bookings.index') }}" class="btn btn-block" style="background-color: #059669; color: #fff;">
                 ← Back to Bookings
             </a>
 

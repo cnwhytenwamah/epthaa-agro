@@ -13,7 +13,7 @@
 
             <div class="ml-md-auto mt-3 mt-md-0">
                 <a href="{{ route('admin.categories.index') }}"
-                   class="btn btn-round btn-secondary">
+                   class="btn btn-round" style="background-color: #10b981; color: #fff;">
                     <i class="fas fa-arrow-left"></i> Back to Categories
                 </a>
             </div>
@@ -124,12 +124,12 @@
                         <div class="form-group text-right">
 
                             <a href="{{ route('admin.categories.index') }}"
-                               class="btn btn-secondary mr-2">
+                               class="btn btn-danger mr-2">
                                 Cancel
                             </a>
 
                             <button type="submit"
-                                    class="btn btn-info">
+                                    class="btn" style="background-color: #10b981; color: #fff;">
                                 <i class="fas fa-save"></i> Update Category
                             </button>
 
