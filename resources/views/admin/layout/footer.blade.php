@@ -7,9 +7,21 @@
 						EPTHAA AGRO LIMITED.
 					</a>
 				</li>
+
 				<li class="nav-item">
 					<a class="nav-link" href="#">
-						&copy; {{date('Y')}} All Right Reserved. 
+						&copy; {{ date('Y') }} All Right Reserved.
+					</a>
+				</li>
+
+				<li class="nav-item">
+					<a 
+						class="nav-link" 
+						href="https://cnwhyte-dev.vercel.app" 
+						target="_blank" 
+						rel="noopener noreferrer"
+					>
+						Powered by Clinton Nwamah
 					</a>
 				</li>
 			</ul>

@@ -263,6 +263,17 @@
 
             <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
                 <p>&copy; {{ date('Y') }} EPTHAA AGRO LIMITED. All rights reserved.</p>
+
+                <p>
+                    Powered by
+                    <a 
+                        href="https://cnwhyte-dev.vercel.app"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Clinton Nwamah
+                    </a>
+                </p>
             </div>
         </div>
     </footer>
