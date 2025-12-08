@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use App\Services\Admin\Auth\AdminLoginService;
 use App\Http\Requests\Auth\Admin\AdminLoginFormRequest;
-
+use Illuminate\Support\Facades\Auth;
 
 class AdminLoginController extends Controller
 {
@@ -15,7 +15,7 @@ class AdminLoginController extends Controller
         protected AdminLoginService $loginService
     ){}
 
-    public function showLoginForm():View
+    public function showLoginForm(): View
     {
         $title = 'EPTHAA AGRO LIMITED | Admin Login';
         $description = 'Ken admin login page';
@@ -24,12 +24,27 @@ class AdminLoginController extends Controller
         return view('admin.auth.login', compact('title', 'description', 'keywords'));
     }
 
-    public function login(AdminLoginFormRequest $request):RedirectResponse
+    public function login(AdminLoginFormRequest $request): RedirectResponse
     {
         $response = $this->loginService->login($request);
+
         if ($response->status) {
-            return redirect()->intended(route('admin.dashboard'))->with('success', $response->message);
+            return redirect()
+                ->intended(route('admin.dashboard'))
+                ->with('success', $response->message);
         }
-        return back()->withInput($request->only('email'))->with('error', $response->message);
+
+        return back()
+            ->withInput($request->only('email'))
+            ->with('error', $response->message);
+    }
+    public function logout(): RedirectResponse
+    {
+        Auth::guard('admin')->logout();
+
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+
+        return redirect()->route('admin.login');
     }
 }

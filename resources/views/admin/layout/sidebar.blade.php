@@ -9,10 +9,7 @@
 
 					$name = $admin?->name ?? 'Admin';
 
-					$initials = collect(explode(' ', $name))
-						->map(fn($word) => strtoupper(substr($word, 0, 1)))
-						->take(2)
-						->join('');
+					$initials = collect(explode(' ', $name))->map(fn($word) => strtoupper(substr($word, 0, 1)))->take(2)->join('');
 				@endphp
 
 
@@ -170,7 +167,12 @@
 
 				
 				<li class="mx-4 mt-2">
-					<a href="#" class="btn btn-pink btn-block">Logout</a>
+					<form method="POST" action="{{ route('admin.logout') }}">
+						@csrf
+						<button type="submit" class="btn btn-block" style="background-color: #10b981; color: #fff;">
+							Logout
+						</button>
+					</form>
 				</li>
 
 			</ul>
