@@ -18,7 +18,9 @@ class ProductService extends AdminBaseService
 
     public function listProducts(int $perPage = 15): stdClass
     {
-        $products = Product::with('category')->orderBy('created_at', 'desc')->paginate($perPage);
+        $products = Product::with('category')
+            ->orderBy('created_at', 'desc')
+            ->paginate($perPage);
 
         return $this->successMsg('Products retrieved successfully', $products);
     }

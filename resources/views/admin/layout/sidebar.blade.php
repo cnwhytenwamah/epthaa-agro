@@ -3,14 +3,30 @@
 		<div class="sidebar-content">
 
 			<div class="user">
-				<div class="avatar-sm float-left mr-2">
-					<img src="{{ asset('assets/img/profile.jpg') }}" alt="..." class="avatar-img rounded-circle">
+
+				@php
+					$admin = auth('admin')->user();
+
+					$name = $admin?->name ?? 'Admin';
+
+					$initials = collect(explode(' ', $name))
+						->map(fn($word) => strtoupper(substr($word, 0, 1)))
+						->take(2)
+						->join('');
+				@endphp
+
+
+				<div class="avatar-sm float-left mr-2 d-flex align-items-center justify-content-center rounded-circle  text-white font-weight-bold" style="width:40px;height:40px;background-color: #10b981">
+					{{ $initials }}
 				</div>
+
 				<div class="info">
 					<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 						<span>
-							Hizrian
-							<span class="user-level">Administrator</span>
+							{{ $name }}
+							<span class="user-level">
+								Administrator
+							</span>
 						</span>
 					</a>
 					<div class="clearfix"></div>
