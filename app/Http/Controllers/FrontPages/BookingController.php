@@ -42,7 +42,7 @@ class BookingController extends BaseController
         // Notification::route('mail', config('mail.from.address'))
         //     ->notify(new BookingCreated($booking));
 
-        return redirect()->route('front-pages.bookings.success')
+        return redirect()->route('bookings.success')
             ->with('success', 'Booking request submitted successfully! We will contact you shortly.');
     }
 
