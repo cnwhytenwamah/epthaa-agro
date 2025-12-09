@@ -3,21 +3,16 @@
 @section('title', 'Ralph Veterinary Service (RVS)')
 
 @section('content')
-<!-- Hero Section -->
-<section 
-    class="relative bg-[url('assets/img/bg-hero.jpg')] bg-cover bg-center text-white overflow-hidden"
->
-    <!-- Dark overlay -->
+<section class="relative bg-[url('assets/img/bg-hero.jpg')] bg-cover bg-center text-white overflow-hidden">
+
     <div class="absolute inset-0 bg-blue-900/70"></div>
 
-    <!-- Decorative wave shadow -->
     <div class="absolute inset-0 opacity-10">
         <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
             <path fill="currentColor" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,165.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
         </svg>
     </div>
     
-    <!-- Content -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             
@@ -54,7 +49,6 @@
 </section>
 
 
-<!-- Why Choose RVS -->
 <section class="py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
@@ -117,7 +111,6 @@
     </div>
 </section>
 
-<!-- Featured Services -->
 <section class="py-16 bg-gray-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
@@ -167,7 +160,6 @@
 
             @empty
 
-                <!-- Empty State -->
                 <div class="col-span-4 py-12 text-center">
 
                     <div class="flex justify-center mb-6 space-x-6 text-gray-400 text-4xl">
@@ -191,7 +183,6 @@
 
         </div>
 
-        <!-- Button only shows when services exist -->
         @if($services->count())
             <div class="text-center mt-8">
                 <a href="{{ route('rvs.services') }}"
@@ -205,7 +196,6 @@
 </section>
 
 
-<!-- How It Works -->
 <section class="py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
@@ -241,7 +231,6 @@
     </div>
 </section>
 
-<!-- Testimonials -->
 @if($testimonials->count() > 0)
 <section class="py-16 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -279,7 +268,6 @@
 </section>
 @endif
 
-<!-- CTA Section -->
 <section class="py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-4xl font-bold mb-4">Ready to Get Started?</h2>

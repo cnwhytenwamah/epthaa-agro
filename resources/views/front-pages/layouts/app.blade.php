@@ -121,25 +121,69 @@
                     </a>
 
                     @auth
+                        @php
+                            $nameParts = explode(' ', Auth::user()->name);
+                            $initials = strtoupper(
+                                collect($nameParts)->map(fn($n) => substr($n, 0, 1))->join('')
+                            );
+                        @endphp
+
                         <div class="relative group">
-                            <button class="flex items-center text-gray-700 hover:text-[#10b981] transition">
-                                <span>{{ Auth::user()->name }}</span>
-                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            <button class="flex items-center gap-2 focus:outline-none">
+                                <div class="w-10 h-10 rounded-full bg-green-600 text-white
+                                            flex items-center justify-center font-semibold uppercase">
+                                    {{ $initials }}
+                                </div>
+
+                                <svg class="w-4 h-4 text-gray-600 group-hover:text-[#10b981]"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
                                 </svg>
                             </button>
+
                             <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden group-hover:block">
-                                <a href="{{ route('admin.dashboard') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Dashboard</a>
-                                <a href="{{ route('bookings.my-bookings') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">My Bookings</a>
-                                <form method="POST" action="">
+
+                                <div class="px-4 py-2 border-b">
+                                    <p class="text-sm font-semibold text-gray-800">
+                                        {{ Auth::user()->name }}
+                                    </p>
+                                    <p class="text-xs text-gray-500">
+                                        {{ Auth::user()->email }}
+                                    </p>
+                                </div>
+
+                                <a href="{{ route('profile') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    My Profile
+                                </a>
+
+                                <a href="{{ route('bookings.my-bookings') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    My Bookings
+                                </a>
+
+                                <a href="{{ route('admin.dashboard') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    Dashboard
+                                </a>
+
+                                <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-                                    <button type="submit" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Logout</button>
+                                    <button type="submit" class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50">
+                                        Logout
+                                    </button>
                                 </form>
                             </div>
                         </div>
-                    @else
-                        <a href="" class="text-gray-700 hover:text-[#10b981] transition">Login</a>
-                    @endauth
+
+                        @else
+                        <a href="" class="text-gray-700 hover:text-[#10b981] transition">
+                            Login
+                        </a>
+                        @endauth
+
                 </div>
 
                 <div class="md:hidden flex items-center">
@@ -161,14 +205,48 @@
                 <a href="{{ route('contact') }}" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">Contact</a>
                 <a href="{{ route('cart.index') }}" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">Cart ({{ $cartCount }})</a>
                 @auth
-                    <a href="{{ route('admin.dashboard') }}" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">Dashboard</a>
+                    @php
+                        $nameParts = explode(' ', Auth::user()->name);
+                        $initials = strtoupper(
+                            collect($nameParts)->map(fn($n) => substr($n,0,1))->join('')
+                        );
+                    @endphp
+
+                    <div class="px-3 py-2 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-green-600 text-white
+                                    flex items-center justify-center font-semibold">
+                            {{ $initials }}
+                        </div>
+                        <span class="font-medium text-gray-700">
+                            {{ Auth::user()->name }}
+                        </span>
+                    </div>
+
+                    <a href="{{ route('profile') }}" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">
+                        My Profile
+                    </a>
+
+                    <a href="{{ route('bookings.my-bookings') }}" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">
+                        My Bookings
+                    </a>
+
+                    <a href="{{ route('admin.dashboard') }}" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">
+                        Dashboard
+                    </a>
+
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <button type="submit" class="block w-full text-left px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">Logout</button>
+                        <button type="submit" class="block w-full text-left px-3 py-2 text-red-600 hover:bg-red-50 rounded">
+                            Logout
+                        </button>
                     </form>
-                @else
-                    <a href="" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">Login</a>
+
+                    @else
+                    <a href="" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">
+                        Login
+                    </a>
                 @endauth
+
             </div>
         </div>
     </nav>

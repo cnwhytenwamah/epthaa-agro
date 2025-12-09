@@ -139,27 +139,28 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Product Images</label>
-                                    <input name="images[]" type="file"
-                                           multiple class="form-control">
+                                    <input name="images" type="file"
+                                            class="form-control">
                                 </div>
                             </div>
 
                             {{-- Toggles --}}
                             <div class="col-md-6 mt-2">
-
                                 <div class="form-check">
-                                    <input value="1" type="checkbox"
-                                           name="is_active" class="form-check-input" checked>
-                                    <label class="form-check-label">Active</label>
+                                    <input value="1" type="checkbox" name="is_active" class="form-check-input" checked style="opacity:1 !important; position:static !important;" id="is_active">
+                                    <label class="form-check-label" for="is_active">
+                                        Active
+                                    </label>
                                 </div>
 
                                 <div class="form-check">
-                                    <input value="1" type="checkbox"
-                                           name="is_featured" class="form-check-input">
-                                    <label class="form-check-label">Featured</label>
+                                    <input value="1" type="checkbox" name="is_featured" class="form-check-input" style="opacity:1 !important; position:static !important;" id="is_featured">
+                                    <label class="form-check-label" for="is_featured">
+                                        Featured
+                                    </label>
                                 </div>
-
                             </div>
+
 
                         </div>
 

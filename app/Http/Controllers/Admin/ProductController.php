@@ -47,7 +47,7 @@ class ProductController extends BaseController
         return view('admin.products.edit', compact('product', 'categories'));
     }
 
-    public function update(Request $request, Product $product): RedirectResponse
+    public function update(ProductFormRequest $request, Product $product): RedirectResponse
     {
         $response = $this->productService->update($request, $product);
 

@@ -22,19 +22,34 @@ class ProductFormRequest extends FormRequest
      */
     public function rules(): array
     {
+        $productId = $this->route('product')?->id;
+
         return [
             'category_id' => ['required', 'exists:categories,id'],
             'name' => ['required', 'string', 'max:255'],
-            'slug' => ['required', 'string', 'max:255', 'unique:products,slug'],
+
+            'slug' => [
+                'nullable',
+                'string',
+                'max:255',
+                Rule::unique('products', 'slug')->ignore($productId),
+            ],
+
             'description' => ['required', 'string'],
             'usage_instructions' => ['nullable', 'string'],
             'dosage_info' => ['nullable', 'string'],
             'safety_info' => ['nullable', 'string'],
             'price' => ['required', 'numeric', 'min:0'],
             'stock_quantity' => ['nullable', 'integer', 'min:0'],
-            'sku' => ['required', 'string', 'max:255', 'unique:products,sku'],
-            'images' => ['nullable', 'array'],
-            'images.*' => ['string'],
+
+
+            'sku' => [
+                'required',
+                'string',
+                'max:255',
+                Rule::unique('products', 'sku')->ignore($productId),
+            ],
+
             'packaging_info' => ['nullable', 'string', 'max:255'],
             'is_featured' => ['nullable', 'boolean'],
             'is_active' => ['nullable', 'boolean'],

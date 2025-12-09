@@ -3568,11 +3568,11 @@ label.error {
 .table-head-bg-default thead {
   border: 1px solid #1a2035 !important; }
 
-.table-head-bg-[#10b981] thead {
-  border: 1px solid #1572E8 !important; }
+.table-head-bg-primary thead {
+  border: 1px solid #10b981 !important; }
 
-.table-head-bg-[#059669] thead {
-  border: 1px solid #6861CE !important; }
+.table-head-bg-secondary thead {
+  border: 1px solid #059669 !important; }
 
 .table-head-bg-info thead {
   border: 1px solid #48ABF7 !important; }
@@ -3591,13 +3591,13 @@ label.error {
   color: #ffffff !important;
   border: 0px !important; }
 
-.table-head-bg-[#10b981] thead th, .table-striped-bg-[#10b981] tbody tr:nth-of-type(odd) {
-  background: #1572E8 !important;
+.table-head-bg-primary thead th, .table-striped-bg-primary tbody tr:nth-of-type(odd) {
+  background: #10b981 !important;
   color: #ffffff !important;
   border: 0px !important; }
 
-.table-head-bg-[#059669] thead th, .table-striped-bg-[#059669] tbody tr:nth-of-type(odd) {
-  background: #6861CE !important;
+.table-head-bg-secondary thead th, .table-striped-bg-secondary tbody tr:nth-of-type(odd) {
+  background: #059669 !important;
   color: #ffffff !important;
   border: 0px !important; }
 
@@ -4669,7 +4669,7 @@ label.error {
   background: #F25961; }
 
 /*     	Modal     */
-.modal .bg-default .modal-title, .modal .bg-[#10b981] .modal-title, .modal .bg-[#059669] .modal-title, .modal .bg-info .modal-title, .modal .bg-success .modal-title, .modal .bg-warning .modal-title, .modal .bg-danger .modal-title {
+.modal .bg-default .modal-title, .modal .bg-primary .modal-title, .modal .bg-secondary .modal-title, .modal .bg-info .modal-title, .modal .bg-success .modal-title, .modal .bg-warning .modal-title, .modal .bg-danger .modal-title {
   color: #ffffff !important; }
 
 .modal-content {
@@ -8882,16 +8882,16 @@ body {
 .bg-dark2 {
   background-color: #1f283e !important; }
 
-.bg-[#10b981] {
+.bg-secondary {
   background-color: #1572E8 !important; }
 
-.bg-[#10b981]2 {
+.bg-primary2 {
   background-color: #1269DB !important; }
 
-.bg-[#059669] {
+.bg-secondary {
   background-color: #6861CE !important; }
 
-.bg-[#059669]2 {
+.bg-secondary2 {
   background-color: #5C55BF !important; }
 
 .bg-info {
@@ -8929,13 +8929,13 @@ body {
   background: -webkit-linear-gradient(legacy-direction(-45deg), #0A0B11, #1f283e) !important;
   background: linear-gradient(-45deg, #0A0B11, #1f283e) !important; }
 
-.bg-[#10b981]-gradient {
-  background: #1572E8 !important;
+.bg-primary-gradient {
+  background: #10b981 !important;
   background: -webkit-linear-gradient(legacy-direction(-45deg), #06418E, #1572E8) !important;
   background: linear-gradient(-45deg, #06418E, #1572E8) !important; }
 
-.bg-[#059669]-gradient {
-  background: #6861CE !important;
+.bg-secondary-gradient {
+  background: #059669 !important;
   background: -webkit-linear-gradient(legacy-direction(-45deg), #2A20AC, #6861CE) !important;
   background: linear-gradient(-45deg, #2A20AC, #6861CE) !important; }
 

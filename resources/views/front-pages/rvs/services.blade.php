@@ -3,14 +3,9 @@
 @section('title', 'Our Veterinary Services')
 
 @section('content')
-<!-- Page Header -->
-<section 
-    class="relative bg-[url('{{ asset('assets/img/bg-hero.jpg') }}')] bg-cover bg-center text-white py-20"
->
-    <!-- Dark overlay -->
+<section class="relative bg-[url('{{ asset('assets/img/bg-hero.jpg') }}')] bg-cover bg-center text-white py-20">
     <div class="absolute inset-0 bg-blue-900/70"></div>
 
-    <!-- Content -->
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <nav class="mb-6 text-sm text-blue-200">
@@ -33,7 +28,6 @@
 </section>
 
 
-<!-- Services Grid -->
 <section class="py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         @if($services->count() > 0)
@@ -88,7 +82,6 @@
     </div>
 </section>
 
-<!-- Service Categories -->
 <section class="py-16 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
@@ -160,7 +153,6 @@
     </div>
 </section>
 
-<!-- Why Book With Us -->
 <section class="py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl shadow-2xl overflow-hidden">
@@ -215,7 +207,6 @@
     </div>
 </section>
 
-<!-- Contact CTA -->
 <section class="py-16 bg-gray-50">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-3xl font-bold text-gray-900 mb-4">Have Questions About Our Services?</h2>

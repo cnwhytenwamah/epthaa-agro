@@ -3,28 +3,38 @@
 @section('title', $service->title)
 
 @section('content')
-<!-- Breadcrumb & Header -->
-<section class="bg-gray-50 py-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <nav class="mb-4 text-sm text-gray-600">
-            <a href="{{ route('home') }}" class="hover:text-primary">Home</a>
+<section class="relative bg-[url('{{ asset('assets/img/bg-hero.jpg') }}')] bg-cover bg-center text-white py-20">
+    <div class="absolute inset-0 bg-blue-900/70"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <nav class="mb-6 text-sm text-blue-200">
+            <a href="{{ route('home') }}" class="hover:text-white">Home</a>
             <span class="mx-2">/</span>
-            <a href="{{ route('rvs.index') }}" class="hover:text-primary">RVS</a>
+            <a href="{{ route('rvs.index') }}" class="hover:text-white">RVS</a>
             <span class="mx-2">/</span>
-            <a href="{{ route('rvs.services') }}" class="hover:text-primary">Services</a>
+            <a href="{{ route('rvs.services') }}" class="hover:text-white">Services</a>
             <span class="mx-2">/</span>
-            <span class="text-gray-900">{{ $service->title }}</span>
+            <span class="text-white">{{ $service->title }}</span>
         </nav>
+        
+        <h1 class="text-5xl font-bold mb-4">
+            {{ $service->title }}
+        </h1>
+
+        <p class="text-xl text-blue-100 max-w-3xl">
+            Learn more about our {{ $service->title }} service and how we support animal health with professional care.
+        </p>
+
     </div>
 </section>
 
-<!-- Service Detail -->
+
+
 <section class="py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <!-- Main Content -->
             <div class="lg:col-span-2">
-                <!-- Service Image -->
                 @if($service->image)
                 <img src="{{ Storage::url($service->image) }}" alt="{{ $service->title }}" class="w-full h-96 object-cover rounded-2xl shadow-lg mb-8">
                 @else
@@ -35,15 +45,12 @@
                 </div>
                 @endif
 
-                <!-- Service Title -->
                 <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">{{ $service->title }}</h1>
                 
-                <!-- Service Description -->
                 <div class="prose prose-lg max-w-none mb-8">
                     <p class="text-xl text-gray-700 leading-relaxed">{{ $service->description }}</p>
                 </div>
 
-                <!-- Service Details -->
                 @if($service->details)
                 <div class="bg-white rounded-xl shadow-md p-8 mb-8">
                     <h2 class="text-2xl font-bold text-gray-900 mb-4">Service Details</h2>
@@ -53,7 +60,6 @@
                 </div>
                 @endif
 
-                <!-- What's Included -->
                 <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 mb-8">
                     <h2 class="text-2xl font-bold text-gray-900 mb-6">What's Included</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -96,37 +102,91 @@
                     </div>
                 </div>
 
-                <!-- FAQ Section -->
                 <div class="bg-white rounded-xl shadow-md p-8">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
-                    
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">
+                        Frequently Asked Questions
+                    </h2>
+
                     <div class="space-y-4">
-                        <div class="border-b pb-4">
-                            <h3 class="font-semibold text-gray-900 mb-2">How do I book this service?</h3>
-                            <p class="text-gray-600">Simply click the "Book Now" button and fill out the appointment form. Our team will contact you within 24 hours to confirm your booking.</p>
-                        </div>
-                        
-                        <div class="border-b pb-4">
-                            <h3 class="font-semibold text-gray-900 mb-2">Do you visit my location?</h3>
-                            <p class="text-gray-600">Yes! We provide on-site veterinary services. Our team will come directly to your farm or location.</p>
-                        </div>
-                        
-                        <div class="border-b pb-4">
-                            <h3 class="font-semibold text-gray-900 mb-2">What should I prepare before the visit?</h3>
-                            <p class="text-gray-600">Please have your animals accessible and any previous medical records ready. Provide a clean, well-lit area for examination if possible.</p>
-                        </div>
-                        
-                        <div class="pb-4">
-                            <h3 class="font-semibold text-gray-900 mb-2">Is emergency service available?</h3>
-                            <p class="text-gray-600">Yes, we offer 24/7 emergency veterinary services. Contact us immediately via phone or WhatsApp for urgent cases.</p>
-                        </div>
+
+                        <details class="group border-b pb-4">
+                            <summary class="flex cursor-pointer items-center justify-between font-semibold text-gray-900 list-none">
+                                How do I book this service?
+                                
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="w-5 h-5 transition-transform duration-300 group-open:rotate-180"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </summary>
+
+                            <p class="text-gray-600 mt-2">
+                                Simply click the "Book Now" button and fill out the appointment form.
+                                Our team will contact you within 24 hours to confirm your booking.
+                            </p>
+                        </details>
+
+                        <details class="group border-b pb-4">
+                            <summary class="flex cursor-pointer items-center justify-between font-semibold text-gray-900 list-none">
+                                Do you visit my location?
+
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="w-5 h-5 transition-transform duration-300 group-open:rotate-180"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </summary>
+
+                            <p class="text-gray-600 mt-2">
+                                Yes! We provide on-site veterinary services. Our team will come directly
+                                to your farm or location.
+                            </p>
+                        </details>
+
+                        <details class="group border-b pb-4">
+                            <summary class="flex cursor-pointer items-center justify-between font-semibold text-gray-900 list-none">
+                                What should I prepare before the visit?
+
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="w-5 h-5 transition-transform duration-300 group-open:rotate-180"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </summary>
+
+                            <p class="text-gray-600 mt-2">
+                                Please have your animals accessible and any previous medical records
+                                ready. Provide a clean, well-lit area for examination if possible.
+                            </p>
+                        </details>
+
+                        <details class="group pb-4">
+                            <summary class="flex cursor-pointer items-center justify-between font-semibold text-gray-900 list-none">
+                                Is emergency service available?
+
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="w-5 h-5 transition-transform duration-300 group-open:rotate-180"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </summary>
+
+                            <p class="text-gray-600 mt-2">
+                                Yes, we offer 24/7 emergency veterinary services. Contact us immediately
+                                via phone or WhatsApp for urgent cases.
+                            </p>
+                        </details>
+
                     </div>
                 </div>
+
             </div>
 
-            <!-- Sidebar -->
             <div class="lg:col-span-1">
-                <!-- Booking Card -->
                 <div class="bg-white rounded-xl shadow-lg p-8 sticky top-24">
                     @if($service->price)
                     <div class="mb-6 pb-6 border-b">
@@ -146,7 +206,6 @@
                         WhatsApp Inquiry
                     </a>
 
-                    <!-- Service Features -->
                     <div class="space-y-3 pt-6 border-t">
                         <h3 class="font-bold text-gray-900 mb-4">Service Features:</h3>
                         
@@ -179,14 +238,12 @@
                         </div>
                     </div>
 
-                    <!-- Contact Info -->
                     <div class="mt-6 pt-6 border-t">
                         <p class="text-sm text-gray-600 text-center mb-2">Need Help?</p>
-                        <p class="text-sm font-semibold text-gray-900 text-center">Call: +234 {{ env('WHATSAPP_NUMBER') }}</p>
+                        <p class="text-sm font-semibold text-gray-900 text-center">Call: {{ env('WHATSAPP_NUMBER') }}</p>
                     </div>
                 </div>
 
-                <!-- Other Services -->
                 <div class="bg-gray-50 rounded-xl p-6 mt-6">
                     <h3 class="font-bold text-gray-900 mb-4">Other Services</h3>
                     <a href="{{ route('rvs.services') }}" class="text-blue-600 hover:text-blue-700 font-medium text-sm">

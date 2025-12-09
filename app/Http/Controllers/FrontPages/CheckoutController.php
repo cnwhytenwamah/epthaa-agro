@@ -17,7 +17,7 @@ class CheckoutController extends BaseController
         $cart = session()->get('cart', []);
         
         if (empty($cart)) {
-            return redirect()->route('front-pages.shop.index')->with('error', 'Your cart is empty!');
+            return redirect()->route('shop.index')->with('error', 'Your cart is empty!');
         }
 
         $subtotal = array_sum(array_map(fn($item) => $item['price'] * $item['quantity'], $cart));
@@ -42,7 +42,7 @@ class CheckoutController extends BaseController
         $cart = session()->get('cart', []);
         
         if (empty($cart)) {
-            return redirect()->route('front-pages.shop.index')->with('error', 'Your cart is empty!');
+            return redirect()->route('shop.index')->with('error', 'Your cart is empty!');
         }
 
         $subtotal = array_sum(array_map(fn($item) => $item['price'] * $item['quantity'], $cart));
