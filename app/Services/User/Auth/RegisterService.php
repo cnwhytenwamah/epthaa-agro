@@ -7,7 +7,7 @@ use Exception;
 use App\Dto\RegisterDto;
 use App\Services\BaseService;
 use App\Http\Requests\Auth\User\RegisterFormRequest;
-use App\Repositories\Interfaces\UserRepositoryInterface;
+use App\Repositories\Interface\UserRepositoryInterface;
 
 class RegisterService extends BaseService
 {

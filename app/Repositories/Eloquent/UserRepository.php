@@ -3,8 +3,9 @@
 namespace App\Repositories\Eloquent;
 
 use App\Models\User;
+use App\Repositories\Interface\UserRepositoryInterface;
 
-class UserRepository
+class UserRepository implements UserRepositoryInterface
 {
     /**
      * Create a new class instance.

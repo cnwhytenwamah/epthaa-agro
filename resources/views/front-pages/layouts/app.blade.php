@@ -120,9 +120,11 @@
                         @endif
                     </a>
 
-                    @auth
+                    @auth('user')
                         @php
-                            $nameParts = explode(' ', Auth::user()->name);
+                            $user = Auth::guard('user')->user();
+
+                            $nameParts = explode(' ', $user->name);
                             $initials = strtoupper(
                                 collect($nameParts)->map(fn($n) => substr($n, 0, 1))->join('')
                             );
@@ -146,18 +148,18 @@
                                 </svg>
                             </button>
 
-                            <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden group-hover:block">
+                            <div class="absolute right-0 w-48 bg-white rounded-md shadow-lg py-1 hidden group-hover:block hover:block">
 
                                 <div class="px-4 py-2 border-b">
                                     <p class="text-sm font-semibold text-gray-800">
-                                        {{ Auth::user()->name }}
+                                        {{ $user->name }}
                                     </p>
                                     <p class="text-xs text-gray-500">
-                                        {{ Auth::user()->email }}
+                                        {{ $user->email }}
                                     </p>
                                 </div>
 
-                                <a href="{{ route('profile') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                <a href="{{ route('user.profile') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                     My Profile
                                 </a>
 
@@ -165,8 +167,8 @@
                                     My Bookings
                                 </a>
 
-                                <a href="{{ route('admin.dashboard') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                    Dashboard
+                                <a href="{{ route('orders.my-orders') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    My Orders
                                 </a>
 
                                 <form method="POST" action="{{ route('logout') }}">
@@ -177,12 +179,12 @@
                                 </form>
                             </div>
                         </div>
-
-                        @else
-                        <a href="" class="text-gray-700 hover:text-[#10b981] transition">
+                    @else
+                        <a href="{{ route('login') }}" class="text-gray-700 hover:text-[#10b981] transition">
                             Login
                         </a>
-                        @endauth
+                    @endauth
+
 
                 </div>
 
@@ -204,9 +206,11 @@
                 <a href="{{ route('about') }}" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">About</a>
                 <a href="{{ route('contact') }}" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">Contact</a>
                 <a href="{{ route('cart.index') }}" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">Cart ({{ $cartCount }})</a>
-                @auth
+                @auth('user')
                     @php
-                        $nameParts = explode(' ', Auth::user()->name);
+                        $user = Auth::guard('user')->user();
+
+                        $nameParts = explode(' ', $user->name);
                         $initials = strtoupper(
                             collect($nameParts)->map(fn($n) => substr($n,0,1))->join('')
                         );
@@ -218,34 +222,17 @@
                             {{ $initials }}
                         </div>
                         <span class="font-medium text-gray-700">
-                            {{ Auth::user()->name }}
+                            {{ $user->name }}
                         </span>
                     </div>
 
-                    <a href="{{ route('profile') }}" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">
-                        My Profile
-                    </a>
-
-                    <a href="{{ route('bookings.my-bookings') }}" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">
-                        My Bookings
-                    </a>
-
-                    <a href="{{ route('admin.dashboard') }}" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">
-                        Dashboard
-                    </a>
-
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button type="submit" class="block w-full text-left px-3 py-2 text-red-600 hover:bg-red-50 rounded">
-                            Logout
-                        </button>
-                    </form>
-
-                    @else
-                    <a href="" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">
+                    ...
+                @else
+                    <a href="{{ route('login') }}" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">
                         Login
                     </a>
                 @endauth
+
 
             </div>
         </div>

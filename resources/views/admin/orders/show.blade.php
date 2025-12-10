@@ -36,7 +36,7 @@
 
                 <p><strong>Payment:</strong> {{ ucfirst($order->payment_method) }}</p>
                 <p><strong>Date:</strong> {{ $order->created_at->format('M d, Y') }}</p>
-                <p><strong>Total:</strong> ₦{{ number_format($order->total_amount, 2) }}</p>
+                <p><strong>Total:</strong> ₦{{ number_format($order->total, 2) }}</p>
 
                 <hr>
 
@@ -89,7 +89,7 @@
                     <tfoot>
                         <tr>
                             <th colspan="3" class="text-right">Total</th>
-                            <th>₦{{ number_format($order->total_amount,2) }}</th>
+                            <th>₦{{ number_format($order->total,2) }}</th>
                         </tr>
                     </tfoot>
 

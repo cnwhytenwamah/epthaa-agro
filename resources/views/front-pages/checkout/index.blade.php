@@ -50,20 +50,28 @@
 
                             <div class="md:col-span-2">
                                 <label class="block text-sm font-medium text-gray-700 mb-2">State *</label>
-                                <select name="state" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent @error('state') border-red-500 @enderror">
+
+                                <select name="state" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg
+                                        focus:ring-2 focus:ring-primary focus:border-transparent
+                                        @error('state') border-red-500 @enderror">
+
                                     <option value="">Select State</option>
-                                    <option value="Abakaliki">Abakaliki</option>
-                                    <option value="Abuja">Abuja</option>
-                                    <option value="Kano">Kano</option>
-                                    <option value="Rivers">Rivers</option>
-                                    <option value="Oyo">Oyo</option>
-                                    <option value="Kaduna">Kaduna</option>
-                                    <!-- Add more states -->
+
+                                    @foreach($states as $state)
+                                        <option value="{{ $state }}"
+                                            {{ old('state') === $state ? 'selected' : '' }}>
+                                            {{ $state }}
+                                        </option>
+                                    @endforeach
+
                                 </select>
+
                                 @error('state')
-                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                                 @enderror
                             </div>
+
 
                             <div class="md:col-span-2">
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Delivery Address *</label>

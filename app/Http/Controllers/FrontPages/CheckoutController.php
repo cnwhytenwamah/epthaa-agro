@@ -14,6 +14,13 @@ class CheckoutController extends BaseController
 {
     public function index()
     {
+        $states = [
+            'Abia','Adamawa','Akwa Ibom','Anambra','Bauchi','Bayelsa','Benue','Borno',
+            'Cross River','Delta','Ebonyi','Edo','Ekiti','Enugu','Gombe','Imo',
+            'Jigawa','Kaduna','Kano','Katsina','Kebbi','Kogi','Kwara','Lagos',
+            'Nasarawa','Niger','Ogun','Ondo','Osun','Oyo','Plateau','Rivers',
+            'Sokoto','Taraba','Yobe','Zamfara','FCT (Abuja)'
+        ];
         $cart = session()->get('cart', []);
         
         if (empty($cart)) {
@@ -24,7 +31,7 @@ class CheckoutController extends BaseController
         $deliveryFee = 2000; // Fixed delivery fee
         $total = $subtotal + $deliveryFee;
 
-        return view('front-pages.checkout.index', compact('cart', 'subtotal', 'deliveryFee', 'total'));
+        return view('front-pages.checkout.index', compact('cart', 'subtotal', 'deliveryFee', 'total', 'states'));
     }
 
     public function process(Request $request)

@@ -84,7 +84,7 @@
                             <strong>{{ $order->customer_name }}</strong><br>
                             <small>{{ $order->customer_phone }}</small>
                         </td>
-                        <td>₦{{ number_format($order->total_amount, 2) }}</td>
+                        <td>₦{{ number_format($order->total, 2) }}</td>
 
                         <td>
                             <span class="badge
@@ -105,16 +105,25 @@
                         </td>
 
                         <td>
-                            <a href="{{ route('admin.orders.show', $order) }}"
-                               class="btn btn-sm btn-primary">
-                                View
-                            </a>
+                            <div class="btn-group">
 
-                            <a href="{{ route('admin.orders.invoice', $order) }}"
-                               class="btn btn-sm btn-secondary">
-                                Invoice
-                            </a>
+                                {{-- View --}}
+                                <a href="{{ route('admin.orders.show', $order) }}"
+                                class="btn btn-sm btn-primary"
+                                title="View Order">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+
+                                {{-- Invoice --}}
+                                <a href="{{ route('admin.orders.invoice', $order) }}"
+                                class="btn btn-sm btn-secondary"
+                                title="Download Invoice">
+                                    <i class="fas fa-file-invoice"></i>
+                                </a>
+
+                            </div>
                         </td>
+
                     </tr>
                 @empty
                     <tr>

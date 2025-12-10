@@ -62,6 +62,6 @@ class BookingController extends BaseController
             ->orderBy('created_at', 'desc')
             ->paginate(10);
 
-        return view('front-pages.bookings.my-bookings', compact('bookings'));
+        return view('users.bookings.my-bookings', compact('bookings'));
     }
 }

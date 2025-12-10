@@ -47,8 +47,8 @@ class User extends Authenticatable
     }
     
     // For Support Ticket
-    public function isAdmin(): bool
-    {
-        return $this->role === 'admin';
-    }
+    // public function isAdmin(): bool
+    // {
+    //     return $this->role === 'admin';
+    // }
 }
