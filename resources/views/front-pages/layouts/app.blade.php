@@ -306,7 +306,7 @@
 
                         <li class="flex items-center gap-2">
                             <i class="fa-brands fa-whatsapp text-green-500"></i>
-                            <span>{{ env('WHATSAPP_NUMBER') }}</span>
+                            <span>+{{ env('WHATSAPP_NUMBER') }}</span>
                         </li>
 
                         <li class="flex items-center gap-2">

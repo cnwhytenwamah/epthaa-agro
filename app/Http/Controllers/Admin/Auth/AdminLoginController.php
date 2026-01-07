@@ -29,14 +29,10 @@ class AdminLoginController extends Controller
         $response = $this->loginService->login($request);
 
         if ($response->status) {
-            return redirect()
-                ->intended(route('admin.dashboard'))
-                ->with('success', $response->message);
+            return redirect()->intended(route('admin.dashboard'))->with('success', $response->message);
         }
 
-        return back()
-            ->withInput($request->only('email'))
-            ->with('error', $response->message);
+        return back()->withInput($request->only('email'))->with('error', $response->message);
     }
     public function logout(): RedirectResponse
     {

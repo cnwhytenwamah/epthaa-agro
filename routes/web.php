@@ -11,6 +11,7 @@ use App\Http\Controllers\FrontPages\HomeController;
 use App\Http\Controllers\FrontPages\ShopController;
 use App\Http\Controllers\User\UserProfileController;
 use App\Http\Controllers\FrontPages\BookingController;
+use App\Http\Controllers\FrontPages\PaymentController;
 use App\Http\Controllers\User\UserDashboardController;
 use App\Http\Controllers\FrontPages\CheckoutController;
 use App\Http\Controllers\Admin\AdminDashboardController;
@@ -76,6 +77,7 @@ Route::group(['middleware'=>'auth:user'], function(){
     Route::prefix('cart')->name('cart.')->group(function () {
         Route::get('/', [CartController::class, 'index'])->name('index');
         Route::post('/add/{id}', [CartController::class, 'add'])->name('add');
+        // Route::patch('/update/{id}', [CartController::class, 'update'])->name('update');
         Route::patch('/update/{id}', [CartController::class, 'update'])->name('update');
         Route::delete('/remove/{id}', [CartController::class, 'remove'])->name('remove');
     });
@@ -85,9 +87,10 @@ Route::group(['middleware'=>'auth:user'], function(){
         Route::get('/', [CheckoutController::class, 'index'])->name('index');
         Route::post('/process', [CheckoutController::class, 'process'])->name('process');
         Route::get('/success/{orderNumber}', [CheckoutController::class, 'success'])->name('success');
-        Route::get('/paystack/callback', [CheckoutController::class, 'paystackCallback'])->name('paystack.callback');
-        Route::get('/flutterwave/callback', [CheckoutController::class, 'flutterwaveCallback'])->name('flutterwave.callback');
+        Route::post('/payment/initialize', [PaymentController::class, 'initializePayment'])->name('payment.initialize');
+        Route::get('/payment/verify/{reference}', [CheckoutController::class, 'paystackCallback'])->name('payment.verify');
     });
+
 
 
     // Booking Routes
@@ -136,27 +139,27 @@ Route::post('password-update', [UserResetPasswordController::class, 'resetPasswo
 // Admin Routes
 Route::prefix('admin')->name('admin.')->middleware(['auth:admin'])->group(function () {
 
-        // Dashboard
-        Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
-        // Services
-        Route::resource('services', AdminServiceController::class);
-        // Bookings
-        Route::resource('bookings', AdminBookingController::class)->only(['index', 'show', 'destroy']);        
-        Route::patch('bookings/{booking}/status', [AdminBookingController::class, 'updateStatus'])->name('bookings.update-status');
-        // Products
-        Route::resource('products', AdminProductController::class);    
-        // Orders
-        Route::resource('orders', AdminOrderController::class)->only(['index', 'show']);
-        Route::patch('orders/{order}/status', [AdminOrderController::class, 'updateStatus'])->name('orders.update-status');
-        Route::get('orders/{order}/invoice', [AdminOrderController::class, 'invoice'])->name('orders.invoice');
+    // Dashboard
+    Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+    // Services
+    Route::resource('services', AdminServiceController::class);
+    // Bookings
+    Route::resource('bookings', AdminBookingController::class)->only(['index', 'show', 'destroy']);        
+    Route::patch('bookings/{booking}/status', [AdminBookingController::class, 'updateStatus'])->name('bookings.update-status');
+    // Products
+    Route::resource('products', AdminProductController::class);    
+    // Orders
+    Route::resource('orders', AdminOrderController::class)->only(['index', 'show']);
+    Route::patch('orders/{order}/status', [AdminOrderController::class, 'updateStatus'])->name('orders.update-status');
+    Route::get('orders/{order}/invoice', [AdminOrderController::class, 'invoice'])->name('orders.invoice');
 
 
-        // Category
-        Route::resource('categories', CategoryController::class);
-        Route::post('categories/{category}/toggle-status', [CategoryController::class, 'toggleStatus'])->name('categories.toggle-status');
-        // Orders
-        Route::resource('orders', OrderController::class);
-        Route::get('orders/{order}/invoice', [OrderController::class, 'invoice'])->name('orders.invoice');
+    // Category
+    Route::resource('categories', CategoryController::class);
+    Route::post('categories/{category}/toggle-status', [CategoryController::class, 'toggleStatus'])->name('categories.toggle-status');
+    // Orders
+    Route::resource('orders', OrderController::class);
+    Route::get('orders/{order}/invoice', [OrderController::class, 'invoice'])->name('orders.invoice');
 
-    });
+});
 

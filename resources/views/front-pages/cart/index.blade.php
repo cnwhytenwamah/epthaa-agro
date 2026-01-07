@@ -42,7 +42,7 @@
 
                                 <div class="flex items-center gap-4">
                                     <!-- Quantity Update -->
-                                    <form action="{{ route('cart.update', $id) }}" method="POST" class="flex items-center gap-2">
+                                    <!-- <form action="{{ route('cart.update', $id) }}" method="POST" class="flex items-center gap-2">
                                         @csrf
                                         @method('PATCH')
                                         <label class="text-sm text-gray-600">Qty:</label>
@@ -50,7 +50,21 @@
                                         <button type="submit" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-lg font-medium transition">
                                             Update
                                         </button>
+                                    </form> -->
+                                    <form class="quantity-form" data-id="{{ $id }}">
+                                        @csrf
+                                        @method('PATCH')
+
+                                        <label class="text-sm text-gray-600">Qty:</label>
+                                        <input
+                                            type="number"
+                                            name="quantity"
+                                            value="{{ $item['quantity'] }}"
+                                            min="1"
+                                            class="quantity-input w-20 px-3 py-2 border border-gray-300 rounded-lg"
+                                        >
                                     </form>
+
 
                                     <!-- Remove Button -->
                                     <form action="{{ route('cart.remove', $id) }}" method="POST">
@@ -115,4 +129,34 @@
         @endif
     </div>
 </section>
+
+<script>
+    document.querySelectorAll('.quantity-input').forEach(input => {
+        let timeout = null;
+
+        input.addEventListener('input', function () {
+            clearTimeout(timeout);
+
+            timeout = setTimeout(() => {
+                const form = this.closest('.quantity-form');
+                const id = form.dataset.id;
+                const quantity = this.value;
+
+                fetch(`/cart/update/${id}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                    },
+                    body: JSON.stringify({ quantity })
+                })
+                .then(res => res.json())
+                .then(() => {
+                    location.reload(); // simple & safe
+                });
+            }, 400); // debounce
+        });
+    });
+</script>
+
 @endsection

@@ -3,7 +3,7 @@
 @section('content')
 <div class="flex items-center justify-center min-h-screen bg-gray-100 px-4">
     <div class="w-full max-w-md bg-white shadow-lg rounded-lg p-8">
-        <h2 class="text-2xl font-bold text-center text-gray-900 mb-6">Login</h2>
+        <h2 class="text-2xl font-bold text-center text-gray-900 mb-6">Admin Login</h2>
 
         @include('message')
 
@@ -37,8 +37,7 @@
 
             <!-- Submit -->
             <div>
-                <button type="submit"
-                        class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition-colors">
+                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition-colors">
                     Login
                 </button>
             </div>

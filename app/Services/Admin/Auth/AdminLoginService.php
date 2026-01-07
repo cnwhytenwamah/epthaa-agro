@@ -11,19 +11,24 @@ use App\Http\Requests\Auth\Admin\AdminLoginFormRequest;
 class AdminLoginService extends BaseService
 {
     /**
-     * Handle login request.
+     * Handle admin login request.
      */
     public function login(AdminLoginFormRequest $request): stdClass
     {
-        $request->authenticate();
+        $credentials = $request->only('email', 'password');
+        $remember = $request->boolean('remember');
 
-        Auth::guard('admin')->user();
+        if (! Auth::guard('admin')->attempt($credentials, $remember)) {
+            return $this->errorMsg('Invalid admin credentials');
+        }
+
+        $request->session()->regenerate();
 
         return $this->successMsg('Login successful');
     }
 
     /**
-     * Handle logout.
+     * Handle admin logout.
      */
     public function logout(): stdClass
     {

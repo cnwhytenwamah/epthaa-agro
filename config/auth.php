@@ -39,13 +39,19 @@ return [
     */
 
     'guards' => [
+        'web' => [ 
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+
+        'user' => [ 
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+
         'admin' => [
             'driver' => 'session',
             'provider' => 'admins',
-        ],
-        'user' => [
-            'driver' => 'session',
-            'provider' => 'users',
         ],
     ],
 

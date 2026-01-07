@@ -11,10 +11,12 @@ use App\Repositories\Eloquent\ProductRepository;
 use App\Repositories\Eloquent\ServiceRepository;
 use App\Repositories\Eloquent\BookingsRepository;
 use App\Repositories\Eloquent\CategoryRepository;
+use App\Services\Factories\PaymentServiceFactory;
 use App\Repositories\Eloquent\TestimonialRepository;
 use App\Repositories\Interface\UserRepositoryInterface;
 use App\Repositories\Interface\AdminRepositoryInterface;
 use App\Repositories\Interface\OrderRepositoryInterface;
+use App\Repositories\Interface\PaymentRepositoryInterface;
 use App\Repositories\Interface\ProductRepositoryInterface;
 use App\Repositories\Interface\ServiceRepositoryInterface;
 use App\Repositories\Interface\BookingsRepositoryInterface;
@@ -37,6 +39,10 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(TestimonialRepositoryInterface::class, TestimonialRepository::class);
         $this->app->bind(AdminRepositoryInterface::class, AdminRepository::class);
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
+        $this->app->bind(PaymentRepositoryInterface::class, function () {
+            $gateway = request()->input('payment_method') ?? env('PAYMENT_GATEWAY');
+            return PaymentServiceFactory::make($gateway);
+        });
     }
 
     /**

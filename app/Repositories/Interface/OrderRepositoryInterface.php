@@ -20,5 +20,5 @@ interface OrderRepositoryInterface
     public function updatePaymentStatus($id, $status, $reference = null);
     public function getTotalRevenue();
     public function getRecentOrders($limit = 5);
-    
+    public function paginateWithFilters(array $filters, $perPage = 15);    
 }

@@ -105,4 +105,19 @@ class OrderRepository implements OrderRepositoryInterface
             ->take($limit)
             ->get();
     }
+
+    public function paginateWithFilters(array $filters, $perPage = 15)
+    {
+        $query = $this->model->with('items');
+
+        if (!empty($filters['status'])) {
+            $query->where('order_status', $filters['status']);
+        }
+
+        if (!empty($filters['payment_status'])) {
+            $query->where('payment_status', $filters['payment_status']);
+        }
+
+        return $query->orderBy('created_at', 'desc')->paginate($perPage);
+    }
 }

@@ -35,4 +35,19 @@ return [
         ],
     ],
 
+    'paystack' => [
+        'secret_key' => env('PAYSTACK_SECRET_KEY'),
+        'public_key' => env('PAYSTACK_PUBLIC_KEY'),
+        'base_url'   => env('PAYSTACK_PAYMENT_URL')
+    ],
+
+    'flutterwave' => [
+        'public_key' => env('FLW_PUBLIC_KEY'),
+        'secret_key' => env('FLW_SECRET_KEY'),
+        'base_url'   => env('FLW_BASE_URL', 'https://api.flutterwave.com/v3'),
+    ],
+
+
+
+
 ];
